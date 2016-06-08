@@ -1,0 +1,6 @@
+com\xxx\training\service\impl\RolesClientImplTest.class
+com\xxx\training\controller\QqControllerTest.class
+com\xxx\training\BaseTest.class
+com\xxx\training\service\UserClientTest.class
+com\xxx\training\service\QqDaoTest.class
+com\xxx\training\service\impl\ResourcesClientImplTest.class

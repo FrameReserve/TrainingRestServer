@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:oauth2="http://www.springframework.org/schema/security/oauth2"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+            http://www.springframework.org/schema/security 
+            http://www.springframework.org/schema/security/spring-security-4.1.xsd
+            http://www.springframework.org/schema/security/oauth2
+            http://www.springframework.org/schema/security/spring-security-oauth2.xsd">
+
+
+    <security:http auto-config="false" use-expressions="true" entry-point-ref="authenticationEntryPoint">
+        <security:csrf disabled="true" />
+        <!--<security:form-login login-page="/login.html" authentication-failure-url="/error.html"/>-->
+        <!--单用户登录-->
+        <security:session-management>
+            <security:concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
+        </security:session-management>
+        <!--自定义 Filter security有好多个FILTER ,可以配几个-->
+        <security:custom-filter ref="qqFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+        <!--配置这个自定义的验证 Filter必须把aotu-confi关闭-->
+        <security:custom-filter ref="qqUserNamePwdFilter" position="FORM_LOGIN_FILTER" />
+        <!--sessionId失效的识货跳转到另一个URL-->
+        <security:session-management invalid-session-url="/sessionTimeout.html" />
+    </security:http>
+    <bean id="authenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <constructor-arg name="loginFormUrl" value="/login.html" />
+        <!--<property name="loginFormUrl" value="/login.html" />-->
+    </bean>
+    <bean id="qqUserNamePwdFilter" class="com.xxx.training.security.QqUsernamePasswordAuthenticationFilter" >
+        <property name="authenticationManager" ref="authenticationManager" />
+        <!--<property name="accessDecisionManager" ref="qqAccessDecisionManager" />-->
+        <!--<property name="securityMetadataSource" ref="qqSecurityMetadataSource" />-->
+    </bean>
+    <bean id="qqFilter" class="com.xxx.training.security.QqFilterSecurityInterceptor">
+        <property name="authenticationManager" ref="authenticationManager" />
+        <property name="accessDecisionManager" ref="qqAccessDecisionManager" />
+        <property name="securityMetadataSource" ref="qqSecurityMetadataSource" />
+    </bean>
+    <security:authentication-manager alias="authenticationManager">
+        <security:authentication-provider user-service-ref="userDetailsService"/>
+    </security:authentication-manager>
+    <bean id="qqAccessDecisionManager" class="com.xxx.training.security.QqAccessDecisionManager" />
+    <bean id="userDetailsService" class="com.xxx.training.security.UserDetailsServiceImpl">
+        <!--<property name="userDao" ref="userDao" />-->
+    </bean>
+    <!-- 获取数据库中所有的url资源，读出url资源与权限的对应关系  -->
+    <!--注意!!!!!!! 因为SecurityMetadataSource 不支持注解注入,所以使用构造器注入-->
+    <bean id="qqSecurityMetadataSource" class="com.xxx.training.security.QqSecurityMetadataSource">
+        <constructor-arg ref="rolesClient" ></constructor-arg>
+        <constructor-arg ref="resourcesClient" ></constructor-arg>
+    </bean>
+    <bean id="rolesClient" class="com.xxx.training.service.impl.RolesClientImpl"/>
+    <bean id="resourcesClient" class="com.xxx.training.service.impl.ResourcesClientImpl"/>
+
+
+</beans>

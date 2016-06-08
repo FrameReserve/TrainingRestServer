@@ -3,10 +3,10 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.xxx</groupId>
-	<artifactId>training</artifactId>
+	<artifactId>TrainingRestServer</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>training Maven Webapp</name>
+	<name>TrainingRestServer Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<pluginRepositories>
 		<pluginRepository>
