@@ -10,6 +10,7 @@ import com.xxx.training.entity.domain.UsersRoles;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -25,10 +26,11 @@ import java.util.Set;
 @JsonRootName("user")
 public class User {
 	@Id
-	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id",unique = true,length = 36,nullable = false)
+	@GeneratedValue(generator ="system-uuid")
+    @GenericGenerator(name="system-uuid",strategy = "uuid")
 	@JsonProperty("id")
-	private Integer id;
+	private String id;
 	@Column(name="proxy_id")
 	private Integer proxyId;
 	@Column(name="username")
@@ -52,25 +54,21 @@ public class User {
     private Set<UsersRoles> usersRoleses = new HashSet<UsersRoles>(0);
 	
 	//***************************************************
-	/**    
-	 * @author Lai Zhen Wei       
-	 * @created 2016-6-2 上午8:36:55 
-	 * @return type 
-	 */
-	
-	public Integer getId() {
-		return id;
-	}
-	/**     
-	 * @author Lai Zhen Wei       
-	 * @created 2016-6-2 上午8:36:55         
-	 * @param id   
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	/**    
-	 * @author Lai Zhen Wei       
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+	 * @author Lai Zhen Wei
 	 * @created 2016-6-2 上午8:36:55 
 	 * @return type 
 	 */

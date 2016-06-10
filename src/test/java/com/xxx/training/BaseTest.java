@@ -8,7 +8,9 @@ package com.xxx.training; /**
 */ 
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.ContextHierarchy;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 
 /**   
@@ -23,8 +25,15 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * 修改备注：   
  * @version   V1.0    
  */
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations={"classpath*:spring-bean.xml"})
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath*:spring-bean.xml"})
+@WebAppConfiguration(value = "src/main/webapp")
+@ContextHierarchy({
+        @ContextConfiguration(name = "parent", locations = "classpath*:spring-bean.xml"),
+        @ContextConfiguration(name = "child", locations = "classpath*:spring-mvc.xml")
+})
 public abstract class BaseTest {
 
 }

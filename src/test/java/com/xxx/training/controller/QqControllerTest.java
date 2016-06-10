@@ -10,16 +10,27 @@ package com.xxx.training.controller;
 
 import java.io.IOException;
 
+import com.xxx.training.BaseTest;
 import com.xxx.training.entity.domain.Qq;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.junit.Before;
 import org.junit.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
+
+import javax.inject.Inject;
+
 /**
  * 项目名称：training
  * 
@@ -29,7 +40,24 @@ import com.fasterxml.jackson.databind.SerializationFeature;
  * @version V1.0
  */
 
-public class QqControllerTest {
+public class QqControllerTest extends BaseTest {
+
+	@Inject
+	private WebApplicationContext wac;
+
+	private MockMvc mmc;
+	//mock 模拟 http请求测试controller
+	@Before
+	public void setUp(){
+		mmc = MockMvcBuilders.webAppContextSetup(wac).build();
+	}
+
+	@Test
+	public void testView() throws Exception{
+		MvcResult result = mmc.perform(MockMvcRequestBuilders.get("/test/1.json")).andReturn();
+		System.out.printf(result.getResponse().getContentAsString());
+	}
+
 	@Test
 	public void testQqController() {
 		CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
@@ -70,4 +98,8 @@ public class QqControllerTest {
 		String jsonStr3 = objectMapper3.writeValueAsString(qq);  
 		System.out.println(jsonStr3);
 	}
+
+
+
+
 }

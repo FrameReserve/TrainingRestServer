@@ -55,5 +55,8 @@
     <bean id="rolesClient" class="com.xxx.training.service.impl.RolesClientImpl"/>
     <bean id="resourcesClient" class="com.xxx.training.service.impl.ResourcesClientImpl"/>
 
+    <!--oauth2 2016年6月10日10:22:34-->
+    <!--oauth2 2016年6月10日10:22:34-->
+
 
 </beans>

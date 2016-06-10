@@ -38,15 +38,15 @@ import org.springframework.http.HttpStatus;
 public class QqController {
 	@Inject
 	private QqClient qqClient;
-	@RolesAllowed({"ROLE_ABCS"})
+//	@RolesAllowed({"ROLE_ABCS"})
 	@RequestMapping(value="/test/{id}",method=RequestMethod.GET,produces={ProducesClass.APPLICATION_XML_UTF8,ProducesClass.APPLICATION_XHTML_XML_UTF8,ProducesClass.APPLICATION_JSON_UTF8,ProducesClass.TEXT_HTML_UTF8})
 	@ResponseStatus(HttpStatus.OK)
 	public Qq test(@PathVariable("id")Integer id){
 		Qq qq = new Qq();
 		qq.setId(id);
-        SecurityUser securityUser = (SecurityUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(securityUser.getUsername());
-        System.out.println(securityUser.toString());
+//        SecurityUser securityUser = (SecurityUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        System.out.println(securityUser.getUsername());
+//        System.out.println(securityUser.toString());
         System.out.println("id = [" + id + "]");
         return qqClient.getQq(qq);
 	}

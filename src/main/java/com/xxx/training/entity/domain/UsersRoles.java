@@ -4,6 +4,7 @@ package com.xxx.training.entity.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -22,10 +23,11 @@ public class UsersRoles implements Serializable {
     private static final long serialVersionUID = 1L;
     public UsersRoles(){}
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="urId")
+    @Column(name="urId",unique = true,length = 36,nullable = false)
+    @GeneratedValue(generator ="system-uuid")
+    @GenericGenerator(name="system-uuid",strategy = "uuid")
     @JsonProperty("urId")
-    private Integer urId;
+    private String urId;
     @JsonProperty("roles")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="rid")
@@ -35,12 +37,11 @@ public class UsersRoles implements Serializable {
     @JoinColumn(name="uid")
     private User user;
 
-
-    public Integer getUrId() {
+    public String getUrId() {
         return urId;
     }
 
-    public void setUrId(Integer urId) {
+    public void setUrId(String urId) {
         this.urId = urId;
     }
 
