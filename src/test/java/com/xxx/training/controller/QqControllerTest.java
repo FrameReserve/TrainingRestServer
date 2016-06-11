@@ -12,17 +12,11 @@ import java.io.IOException;
 
 import com.xxx.training.BaseTest;
 import com.xxx.training.entity.domain.Qq;
-import org.apache.http.HttpEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
 import org.junit.Before;
 import org.junit.Test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
@@ -64,26 +58,6 @@ public class QqControllerTest extends BaseTest {
 	}
 
 
-	@Test
-	public void testQqController() {
-		CloseableHttpClient closeableHttpClient = HttpClients.createDefault();
-		CloseableHttpResponse response;
-		HttpGet doGet = new HttpGet("http://localhost:8080/test/11");
-		try {
-			response = closeableHttpClient.execute(doGet);
-			HttpEntity entity = response.getEntity();
-			ObjectMapper mapper = new ObjectMapper();
-//			Qq qq = mapper.readValue(entity.getContent(),Qq.class);
-//			System.out.println(qq.getQq());
-			System.out.println(response.getEntity().getContentEncoding());
-			response.close();
-			closeableHttpClient.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 	
 //	@Test
 	public void testJason() throws JsonProcessingException{

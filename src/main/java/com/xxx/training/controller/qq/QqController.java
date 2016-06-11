@@ -61,7 +61,7 @@ public class QqController {
 
 	@RequestMapping(value = "/qq/add",method = RequestMethod.POST)
 	@ResponseStatus(HttpStatus.OK)
-	public String add(@ModelAttribute("qq") @Valid Qq qq, BindingResult result){if (result.hasErrors())return "error";return "success";}
+	public String add(@ModelAttribute("qq") @Valid Qq qq, BindingResult result){if (result.hasErrors())return result.getAllErrors().get(0).getDefaultMessage();return "success";}
 	
 	
 	@RequestMapping(value="/pages",method=RequestMethod.GET,produces={ProducesClass.APPLICATION_XML_UTF8,ProducesClass.APPLICATION_XHTML_XML_UTF8,ProducesClass.APPLICATION_JSON_UTF8,ProducesClass.TEXT_HTML_UTF8})

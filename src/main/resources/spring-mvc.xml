@@ -10,6 +10,17 @@
 
 	<context:component-scan base-package="com.xxx.training.controller" />
     <security:global-method-security jsr250-annotations="enabled" />
+    <mvc:annotation-driven validator="validator" />
+
+    <!-- 以下 validator  ConversionService 在使用 mvc:annotation-driven 会 自动注册-->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
+        <!-- 如果不加默认到 使用classpath下的 ValidationMessages.properties -->
+        <!--<property name="validationMessageSource" ref="messageSource"/>-->
+    </bean>
+
+
+
     <!--安全切点-->
     <!--<security:global-method-security >-->
         <!--<security:protect-pointcut expression="execution()" access="ROLE_ADMIN" />-->
