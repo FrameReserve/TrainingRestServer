@@ -10,9 +10,9 @@ package com.xxx.training.entity.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -37,6 +37,7 @@ public class Qq implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@JsonProperty("id")
 	private Integer id;
+	@NotNull(message = "{qq.qq.null}")
 	@Column(name="qq")
 	@JsonProperty("qqNo")
 	private Integer qq;

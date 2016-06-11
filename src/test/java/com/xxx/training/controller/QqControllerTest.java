@@ -57,6 +57,12 @@ public class QqControllerTest extends BaseTest {
 		MvcResult result = mmc.perform(MockMvcRequestBuilders.get("/test/1.json")).andReturn();
 		System.out.printf(result.getResponse().getContentAsString());
 	}
+	@Test
+	public void testAdd()throws  Exception{
+		MvcResult result = mmc.perform(MockMvcRequestBuilders.post("/qq/add")).andReturn();
+		System.out.printf(result.getResponse().getContentAsString());
+	}
+
 
 	@Test
 	public void testQqController() {
@@ -98,8 +104,5 @@ public class QqControllerTest extends BaseTest {
 		String jsonStr3 = objectMapper3.writeValueAsString(qq);  
 		System.out.println(jsonStr3);
 	}
-
-
-
 
 }

@@ -13,15 +13,11 @@ import java.util.List;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
+import javax.validation.Valid;
 
-import com.xxx.training.security.SecurityUser;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Validator;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import com.xxx.training.entity.domain.Qq;
 import com.xxx.training.entity.vo.Qqs;
@@ -35,7 +31,9 @@ import org.springframework.http.HttpStatus;
  */
 
 @RestController
+@RequestMapping("/")
 public class QqController {
+
 	@Inject
 	private QqClient qqClient;
 //	@RolesAllowed({"ROLE_ABCS"})
@@ -59,6 +57,11 @@ public class QqController {
 	public Qqs qqs(){
 		return new Qqs(qqClient.findAll());
 	}
+
+
+	@RequestMapping(value = "/qq/add",method = RequestMethod.POST)
+	@ResponseStatus(HttpStatus.OK)
+	public String add(@ModelAttribute("qq") @Valid Qq qq, BindingResult result){if (result.hasErrors())return "error";return "success";}
 	
 	
 	@RequestMapping(value="/pages",method=RequestMethod.GET,produces={ProducesClass.APPLICATION_XML_UTF8,ProducesClass.APPLICATION_XHTML_XML_UTF8,ProducesClass.APPLICATION_JSON_UTF8,ProducesClass.TEXT_HTML_UTF8})

@@ -15,8 +15,8 @@ import java.util.List;
  *
  */
 public interface QqClient {
-	public void saveOrUpdate(Qq qq);
-	public Qq getQq(Qq qq);
-	public List<Qq> findAll();
-	public Page<Qq> findAllBySpecification(Qq qq);
+	void saveOrUpdate(Qq qq);
+	Qq getQq(Qq qq);
+	List<Qq> findAll();
+	Page<Qq> findAllBySpecification(Qq qq);
 }

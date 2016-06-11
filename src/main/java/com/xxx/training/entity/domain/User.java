@@ -6,7 +6,6 @@ package com.xxx.training.entity.domain;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import com.xxx.training.entity.domain.UsersRoles;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
