@@ -44,9 +44,6 @@ public class QqController {
 	public Qq test(@PathVariable("id")Integer id){
 		Qq qq = new Qq();
 		qq.setId(id);
-//        SecurityUser securityUser = (SecurityUser)SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-//        System.out.println(securityUser.getUsername());
-//        System.out.println(securityUser.toString());
         System.out.println("id = [" + id + "]");
         return qqClient.getQq(qq);
 	}
