@@ -2,124 +2,12 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
-	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
-	http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
-	<!-- Spring MVC 注解扫描 -->
-	<context:component-scan base-package="com.xxx" />
-
-<aop:aspectj-autoproxy/>
-	<!-- 定义实体管理器工厂 Jpa配置 LocalContainerEntityManagerFactoryBean这个选项Spring扮演了容器的角色。完全掌管JPA -->
-	<bean id="entityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-		<!-- 指定数据源 -->
-		<property name="dataSource" ref="dataSource" />
-		<!-- 指定Jpa持久化实现厂商类,这里以Hibernate为例 -->
-		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter" />
-		<!-- 指定Entity实体类包路径 -->
-		<property name="packagesToScan">
-			<array>
-				<value>com.xxx.training.entity.domain</value>
-			</array>
-		</property>
-		<!-- 指定JPA属性；如Hibernate中指定是否显示SQL的是否显示、方言等 -->
-		<property name="jpaProperties">
-			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
-				<prop key="hibernate.physical_naming_strategy">com.xxx.training.util.ImprovedNamingStrategy</prop>
-				<prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
-				<prop key="hibernate.show_sql">true</prop>
-				<prop key="hibernate.format_sql">true</prop>
-				<prop key="hibernate.hbm2ddl.auto">validate</prop>
-			</props>
-		</property>
-	</bean>
-
-	<!-- 重要配置：启用扫描并自动创建代理的功能-->
-	<jpa:repositories base-package="com.xxx.training.dao"	transaction-manager-ref="transactionManager" entity-manager-factory-ref="entityManagerFactory" />
-
-	<!-- Hibernate对Jpa的实现 -->
-	<bean id="hibernateJpaVendorAdapter"
-		class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
-
-	<!-- Jpa 事务管理器 -->
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
-	</bean>
-
-	<!-- 开启注解事务 -->
-	<tx:annotation-driven  transaction-manager="transactionManager" proxy-target-class="false" />
-	
-	<!-- alibaba  druid 连接池 -->
-	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
-	<!--  <property name="url" value="${jdbc.url}" />
-	 <property name="username" value="${jdbc.username}" />
-	  <property name="password" value="${jdbc.password}" />
-	 -->
-	 	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/qqguest?useUnicode=true&amp;characterEncoding=UTF-8&amp;emptyStringsConvertToZero=true&amp;jdbcCompliantTruncation=false&amp;noDatetimeStringSync=true&amp;nullCatalogMeansCurrent=true&amp;nullNamePatternMatchesAll=true&amp;transformedBitIsBoolean=false&amp;dontTrackOpenResources=true&amp;zeroDateTimeBehavior=convertToNull&amp;useServerPrepStmts=false&amp;autoClosePStmtStreams=true&amp;processEscapeCodesForPrepStmts=false&amp;useFastDateParsing=false&amp;populateInsertRowWithDefaultValues=false&amp;useDirectRowUnpack=false" />
-        <property name="username" value="root" />
-        <property name="password" value="123" />
-
-        <property name="filters" value="stat" />
-
-        <property name="maxActive" value="20" />
-        <property name="initialSize" value="1" />
-        <property name="maxWait" value="60000" />
-        <property name="minIdle" value="1" />
-
-        <property name="timeBetweenEvictionRunsMillis" value="3600000" />
-        <property name="minEvictableIdleTimeMillis" value="3600000" />
-
-        <property name="validationQuery" value="SELECT 'x'" />
-        <property name="testWhileIdle" value="true" />
-        <property name="testOnBorrow" value="false" />
-        <property name="testOnReturn" value="false" />
-
-        <property name="poolPreparedStatements" value="true" />
-        <property name="maxPoolPreparedStatementPerConnectionSize" value="50" />
-    </bean>
-
-
-	<!--Quartz-->
-	<!-- 使用MethodInvokingJobDetailFactoryBean，任务类可以不实现Job接口，通过targetMethod指定调用方法-->
-	<bean id="customizeTask" class="com.xxx.training.quartz.CustomizeTask"/>
-	<bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<property name="group" value="job_work"/>
-		<property name="name" value="job_work_name"/>
-		<!--false表示等上一个任务执行完后再开启新的任务-->
-		<property name="concurrent" value="false"/>
-		<property name="targetObject">
-			<ref bean="customizeTask"/>
-		</property>
-		<property name="targetMethod">
-			<value>task</value>
-		</property>
-	</bean>
-
-	<!--  调度触发器 -->
-	<bean id="customizeTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
-		<property name="name" value="work_default_name"/>
-		<property name="group" value="work_default"/>
-		<property name="jobDetail">
-			<ref bean="jobDetail" />
-		</property>
-		<property name="cronExpression">
-			<value>0/1 * * * * ?</value>
-		</property>
-	</bean>
-
-	<!-- 调度工厂 -->
-	<bean id="scheduler" class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-		<property name="triggers">
-			<list>
-				<ref bean="customizeTrigger"/>
-			</list>
-		</property>
-	</bean>
+	">
+    <!-- Spring MVC 注解扫描 -->
+    <context:component-scan base-package="com.xxx"/>
+    <aop:aspectj-autoproxy/>
 </beans>
