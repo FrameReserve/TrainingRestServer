@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50625
 File Encoding         : 65001
 
-Date: 2016-06-08 17:36:52
+Date: 2016-06-16 23:22:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -107,6 +107,66 @@ CREATE TABLE `logs` (
 -- ----------------------------
 
 -- ----------------------------
+-- Table structure for oauth_access_token
+-- ----------------------------
+DROP TABLE IF EXISTS `oauth_access_token`;
+CREATE TABLE `oauth_access_token` (
+  `token_id` varchar(36) DEFAULT NULL,
+  `token` longblob,
+  `authentication` longblob,
+  `refresh_token` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of oauth_access_token
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for oauth_client_details
+-- ----------------------------
+DROP TABLE IF EXISTS `oauth_client_details`;
+CREATE TABLE `oauth_client_details` (
+  `client_id` varchar(36) NOT NULL,
+  `client_secret` varchar(255) DEFAULT NULL,
+  `scope` varchar(255) DEFAULT NULL,
+  `authorized_grant_types` varchar(255) DEFAULT NULL,
+  `web_server_redirect_uri` varchar(255) DEFAULT NULL,
+  `authorities` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`client_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of oauth_client_details
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for oauth_code
+-- ----------------------------
+DROP TABLE IF EXISTS `oauth_code`;
+CREATE TABLE `oauth_code` (
+  `code` varchar(255) DEFAULT NULL,
+  `authentication` longblob
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of oauth_code
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for oauth_refresh_token
+-- ----------------------------
+DROP TABLE IF EXISTS `oauth_refresh_token`;
+CREATE TABLE `oauth_refresh_token` (
+  `token_id` varchar(36) DEFAULT NULL,
+  `token` longblob,
+  `authentication` longblob
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of oauth_refresh_token
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for proxy
 -- ----------------------------
 DROP TABLE IF EXISTS `proxy`;
@@ -184,10 +244,10 @@ INSERT INTO `roles` VALUES ('3', '1', 'ROLE_ABCA', 'guest');
 -- ----------------------------
 DROP TABLE IF EXISTS `roles_resources`;
 CREATE TABLE `roles_resources` (
-  `rr_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `rsid` int(11) DEFAULT NULL,
   `rid` int(11) DEFAULT NULL,
-  PRIMARY KEY (`rr_id`),
+  PRIMARY KEY (`id`),
   KEY `FK77tfghudlh221l0dy9q60s3mi` (`rsid`),
   KEY `FKbkwgk0hwprjy9dlmabloviy5i` (`rid`),
   CONSTRAINT `FK77tfghudlh221l0dy9q60s3mi` FOREIGN KEY (`rsid`) REFERENCES `resources` (`id`),
@@ -204,7 +264,7 @@ INSERT INTO `roles_resources` VALUES ('1', '1', '1');
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(36) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `logintime` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
@@ -215,27 +275,30 @@ CREATE TABLE `users` (
   `tel` varchar(255) DEFAULT NULL,
   `username` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES ('1', null, null, 'guest', null, '123456', null, null, null, 'guest');
 INSERT INTO `users` VALUES ('2', null, null, 'admin', null, '123456', null, null, null, 'admin');
+INSERT INTO `users` VALUES ('93dfe7e55559a993015559a99c960000', null, null, '123', null, '123456', null, null, null, 'testBaseEntity');
+INSERT INTO `users` VALUES ('93dfe7e55559c112015559c11c750000', null, null, '123', null, '123456', null, null, null, 'testBaseEntity');
+INSERT INTO `users` VALUES ('93dfe7e655331c7b0155331c80590000', null, null, 'athos', null, '123456', null, null, null, 'athos');
 
 -- ----------------------------
 -- Table structure for users_roles
 -- ----------------------------
 DROP TABLE IF EXISTS `users_roles`;
 CREATE TABLE `users_roles` (
-  `ur_id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` varchar(36) NOT NULL,
   `rid` int(11) DEFAULT NULL,
-  `uid` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ur_id`),
+  `uid` varchar(36) DEFAULT NULL,
+  PRIMARY KEY (`id`),
   KEY `FKee0mot6r2y47ltnyjcah3r59p` (`rid`),
-  KEY `FKrxg5wjyn6ahtq2vf3fgkpb06r` (`uid`),
+  KEY `uid` (`uid`),
   CONSTRAINT `FKee0mot6r2y47ltnyjcah3r59p` FOREIGN KEY (`rid`) REFERENCES `roles` (`id`),
-  CONSTRAINT `FKrxg5wjyn6ahtq2vf3fgkpb06r` FOREIGN KEY (`uid`) REFERENCES `users` (`id`)
+  CONSTRAINT `users_roles_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
