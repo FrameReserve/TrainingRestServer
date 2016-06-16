@@ -85,17 +85,11 @@ public class QqSecurityMetadataSource implements FilterInvocationSecurityMetadat
         }
     }
 
-//    public RolesClient getRolesClient() {
-//        return rolesClient;
-//    }
 
     public void setRolesClient(RolesClient rolesClient) {
         this.rolesClient = rolesClient;
     }
 
-//    public ResourcesClient getResourcesClient() {
-//        return resourcesClient;
-//    }
 
     public void setResourcesClient(ResourcesClient resourcesClient) {
         this.resourcesClient = resourcesClient;

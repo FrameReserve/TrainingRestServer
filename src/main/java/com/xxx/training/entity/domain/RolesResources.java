@@ -3,10 +3,10 @@ package com.xxx.training.entity.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import com.xxx.training.core.entity.BaseEntity;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 /**
  * Created by xxx on 2016-06-04.
@@ -16,13 +16,9 @@ import java.io.Serializable;
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
 @XmlRootElement(name="rolesResources")
 @JsonRootName("rolesResources")
-public class RolesResources implements Serializable {
+public class RolesResources extends BaseEntity{
     private static final long serialVersionUID = 1L;
     public RolesResources(){}
-    @Id
-    @Column(name = "rrId")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer rrId;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="rid")
     private Roles roles;
@@ -44,13 +40,5 @@ public class RolesResources implements Serializable {
 
     public void setRoles(Roles roles) {
         this.roles = roles;
-    }
-
-    public Integer getRrId() {
-        return rrId;
-    }
-
-    public void setRrId(Integer rrId) {
-        this.rrId = rrId;
     }
 }

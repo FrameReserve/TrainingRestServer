@@ -51,7 +51,7 @@ public class QqController {
 	public List<Qq> listQq(){
 		return qqClient.findAll();
 	}
-	@RolesAllowed({"ROLE_ADMIN"})
+//	@RolesAllowed({"ROLE_ADMIN"})
 	@RequestMapping(value="/qqs",method=RequestMethod.GET,produces={ProducesClass.APPLICATION_XML_UTF8,ProducesClass.APPLICATION_XHTML_XML_UTF8,ProducesClass.APPLICATION_JSON_UTF8,ProducesClass.TEXT_HTML_UTF8})
 	@ResponseStatus(HttpStatus.OK)
 	public Qqs qqs(){

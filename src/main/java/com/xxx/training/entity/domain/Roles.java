@@ -3,15 +3,13 @@
  */
 package com.xxx.training.entity.domain;
 
-import com.xxx.training.entity.domain.RolesResources;
-import com.xxx.training.entity.domain.UsersRoles;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import com.xxx.training.core.entity.BaseEntity;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -24,16 +22,11 @@ import java.util.Set;
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
 @XmlRootElement(name="role")
 @JsonRootName("role")
-public class Roles implements Serializable {
+public class Roles extends BaseEntity{
     private static final long serialVersionUID = 1L;
 
 
     public Roles(){}
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty("id")
-    @Column(name="id")
-    private Integer id;
     @Column(name="enable")
     @JsonProperty("enable")
     private Integer enable;
@@ -49,14 +42,6 @@ public class Roles implements Serializable {
     @JsonProperty("userName")
     @Column(name = "username")
     private String userName;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

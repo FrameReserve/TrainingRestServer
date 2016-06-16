@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
+import com.xxx.training.core.entity.BaseEntity;
 import org.hibernate.annotations.GenericGenerator;
 
 import java.util.HashSet;
@@ -23,13 +24,7 @@ import java.util.Set;
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
 @XmlRootElement(name="user")
 @JsonRootName("user")
-public class User {
-	@Id
-	@Column(name="id",unique = true,length = 36,nullable = false)
-	@GeneratedValue(generator ="system-uuid")
-    @GenericGenerator(name="system-uuid",strategy = "uuid")
-	@JsonProperty("id")
-	private String id;
+public class User extends BaseEntity {
 	@Column(name="proxy_id")
 	private Integer proxyId;
 	@Column(name="username")
@@ -54,13 +49,6 @@ public class User {
 	
 	//***************************************************
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public void setUsername(String username) {
         this.username = username;

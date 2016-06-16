@@ -8,7 +8,6 @@
  */
 package com.xxx.training.controller;
 
-import java.io.IOException;
 
 import com.xxx.training.BaseTest;
 import com.xxx.training.entity.domain.Qq;

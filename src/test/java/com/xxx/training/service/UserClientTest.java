@@ -27,8 +27,8 @@ public class UserClientTest extends BaseTest {
     public void save(){
         User user = new User();
         user.setQq(123456);
-        user.setUserName("athos");
-        user.setPassword("athos");
+        user.setUserName("testBaseEntity");
+        user.setPassword("123");
         userClient.save(user);
     }
 }

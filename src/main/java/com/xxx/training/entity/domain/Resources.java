@@ -1,13 +1,11 @@
 package com.xxx.training.entity.domain;
 
-import com.xxx.training.entity.domain.RolesResources;
+import com.xxx.training.core.entity.BaseEntity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.persistence.*;
-
-import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,18 +17,13 @@ import java.util.Set;
 @JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @XmlRootElement(name="resources")
 @JsonRootName("resources")
-public class Resources implements Serializable {
+public class Resources extends BaseEntity{
     
 		/**  描述   (@author: Lai Zhen Wei) */      
 	    
 	private static final long serialVersionUID = 1L;
 
 	public  Resources(){}
-    @Id
-    @JsonProperty("id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private Integer id;
     @Column(name="memo")
     @JsonProperty("memo")
     private String memo;
@@ -49,14 +42,6 @@ public class Resources implements Serializable {
     @JsonProperty("RolesResources")
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "resources")
     private Set<RolesResources> rolesResourceses = new HashSet<RolesResources>(0);
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getMemo() {
         return memo;

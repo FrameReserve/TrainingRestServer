@@ -10,7 +10,8 @@ package com.xxx.training.entity.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import java.io.Serializable;
+import com.xxx.training.core.entity.BaseEntity;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlElement;
@@ -28,37 +29,14 @@ import javax.xml.bind.annotation.XmlRootElement;
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
 @XmlRootElement(name="qq")
 @JsonRootName("oicq")
-public class Qq implements Serializable {
-	
+public class Qq extends BaseEntity {
 
-
-	@Id
-	@Column(name="id")
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@JsonProperty("id")
-	private Integer id;
 	@NotNull(message = "{qq.qq.null}")
 	@Column(name="qq")
 	@JsonProperty("qqNo")
 	private Integer qq;
 	
 	public Qq(){}
-
-	/**
-	 * @return the id
-	 */
-	@XmlElement(name="id")
-	public Integer getId() {
-		return id;
-	}
-
-	/**
-	 * @param id
-	 *            the id to set
-	 */
-	public void setId(Integer id) {
-		this.id = id;
-	}
 
 	/**
 	 * @return the qq
@@ -76,9 +54,5 @@ public class Qq implements Serializable {
 		this.qq = qq;
 	}
 
-	@Override
-	public String toString() {
-		return "qq [id=" + id + ", qq=" + qq + "]";
-	}
 
 }

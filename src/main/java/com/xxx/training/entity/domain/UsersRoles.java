@@ -4,11 +4,9 @@ package com.xxx.training.entity.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import org.hibernate.annotations.GenericGenerator;
-
+import com.xxx.training.core.entity.BaseEntity;
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlRootElement;
-import java.io.Serializable;
 
 /**
  * Created by xxx on 2016-06-04.
@@ -19,15 +17,9 @@ import java.io.Serializable;
 @JsonRootName("usersRoles")
 @Entity
 @Table(name="users_roles")
-public class UsersRoles implements Serializable {
+public class UsersRoles extends BaseEntity{
     private static final long serialVersionUID = 1L;
     public UsersRoles(){}
-    @Id
-    @Column(name="urId",unique = true,length = 36,nullable = false)
-    @GeneratedValue(generator ="system-uuid")
-    @GenericGenerator(name="system-uuid",strategy = "uuid")
-    @JsonProperty("urId")
-    private String urId;
     @JsonProperty("roles")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="rid")
@@ -36,14 +28,6 @@ public class UsersRoles implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="uid")
     private User user;
-
-    public String getUrId() {
-        return urId;
-    }
-
-    public void setUrId(String urId) {
-        this.urId = urId;
-    }
 
     public Roles getRoles() {
         return roles;
