@@ -61,7 +61,7 @@ public class QqControllerTest extends BaseTest {
 //	@Test
 	public void testJason() throws JsonProcessingException{
 		Qq qq = new Qq();
-		qq.setId(1);
+		qq.setId("1");
 		qq.setQq(123);
 		ObjectMapper mapper =new ObjectMapper();
 		mapper.configure(SerializationFeature.WRITE_ENUMS_USING_TO_STRING,false);  

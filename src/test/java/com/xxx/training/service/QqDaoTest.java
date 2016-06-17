@@ -12,7 +12,7 @@ public class QqDaoTest extends BaseTest {
 	@Test
 	public void testAddQq() {
 		Qq qq = new Qq();
-		qq.setId(new Integer("4"));
+		qq.setId("4");
 		qq.setQq(new Integer("12"));
 		qqClient.saveOrUpdate(qq);
 	}

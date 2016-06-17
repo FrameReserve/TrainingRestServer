@@ -39,7 +39,7 @@ public class QqController {
 //	@RolesAllowed({"ROLE_ABCS"})
 	@RequestMapping(value="/test/{id}",method=RequestMethod.GET,produces={ProducesClass.APPLICATION_XML_UTF8,ProducesClass.APPLICATION_XHTML_XML_UTF8,ProducesClass.APPLICATION_JSON_UTF8,ProducesClass.TEXT_HTML_UTF8})
 	@ResponseStatus(HttpStatus.OK)
-	public Qq test(@PathVariable("id")Integer id){
+	public Qq test(@PathVariable("id")String id){
 		Qq qq = new Qq();
 		qq.setId(id);
         System.out.println("id = [" + id + "]");
