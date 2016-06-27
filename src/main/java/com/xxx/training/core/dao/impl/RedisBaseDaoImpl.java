@@ -33,7 +33,6 @@ public class RedisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 	
     public void addEntity(final T entity) {
         redisTemplate.execute(new RedisCallback<Object>() {
-
             @Override
             public Object doInRedis(RedisConnection connection) throws DataAccessException {
                 connection.set(redisTemplate.getStringSerializer().serialize(entity.getClass().getName() + "_" + entity.getId()),
