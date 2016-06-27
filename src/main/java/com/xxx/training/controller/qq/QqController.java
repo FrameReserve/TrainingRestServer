@@ -11,19 +11,23 @@ package com.xxx.training.controller.qq;
 
 import java.util.List;
 
-import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.validation.Valid;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
 import com.xxx.training.entity.domain.Qq;
 import com.xxx.training.entity.vo.Qqs;
 import com.xxx.training.service.QqClient;
 import com.xxx.training.util.ProducesClass;
-import org.springframework.http.HttpStatus;
 
 /**   
  * 创建人：xxx

@@ -1,13 +1,20 @@
 package com.xxx.training.entity.domain;
 
-import com.xxx.training.core.entity.BaseEntity;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import com.training.core.entity.BaseEntity;
 
 /**
  * Created by xxx on 2016-06-04.
