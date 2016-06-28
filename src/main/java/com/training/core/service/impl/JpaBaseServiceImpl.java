@@ -1,15 +1,12 @@
-package com.training.core.dao.impl;
+package com.training.core.service.impl;
 
-import org.springframework.stereotype.Repository;
-
-import com.training.core.dao.BaseDao;
 import com.training.core.entity.BaseEntity;
+import com.training.core.service.BaseService;
 
-@Repository("myBatisBaseDao")
-public class MyBatisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
+public class JpaBaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
 
 	@Override
-	public T getEntityById(Class<T> cls, Integer id) {
+	public T getEntityById(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -27,7 +24,7 @@ public class MyBatisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 	}
 
 	@Override
-	public void deleteEntityById(Class<T> cls, Integer id) {
+	public void deleteEntityById(Integer id) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -1,12 +1,9 @@
 package com.training.core.dao.impl;
 
-import org.springframework.stereotype.Repository;
-
 import com.training.core.dao.BaseDao;
 import com.training.core.entity.BaseEntity;
 
-@Repository("myBatisBaseDao")
-public class MyBatisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
+public class JpaBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 
 	@Override
 	public T getEntityById(Class<T> cls, Integer id) {
