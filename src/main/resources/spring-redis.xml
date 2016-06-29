@@ -7,7 +7,7 @@
             http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">  
   
-  	<context:component-scan base-package="com.xxx">
+  	<context:component-scan base-package="com.training.redis">
     </context:component-scan>
     
     <bean id="poolConfig" class="redis.clients.jedis.JedisPoolConfig">  
@@ -26,7 +26,7 @@
         <property name="connectionFactory" ref="connectionFactory" />  
     </bean>
     
-    <bean id="redisBaseDao" class="com.xxx.training.core.dao.impl.RedisBaseDaoImpl" >
+    <bean id="redisBaseDao" class="com.training.core.dao.impl.RedisBaseDaoImpl" >
     	<property name="redisTemplate" ref="redisTemplate"></property>
     </bean>
         
