@@ -1,6 +1,7 @@
 package com.training.sysmanager.dao;
 
 import com.training.base.BaseTest;
+import com.training.sysmanager.entity.AclUser;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.junit.Test;
@@ -31,7 +32,9 @@ public class AclUserTest extends BaseTest {
 
     @Test
     public void testMybatis(){
-        this.getMapper().getAclUserById();
+        System.out.println(this.getMapper());
+        AclUser aclUser = this.getMapper().getAclUserById();
+        System.out.println(aclUser.getUserName());
     }
 
 }

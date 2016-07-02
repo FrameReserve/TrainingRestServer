@@ -11,5 +11,8 @@
         <result column="create_time" property="createTime" />
         <result column="last_modify_time" property="lastModifyTime" />
     </resultMap>
+    <select id="getAclUserById" resultMap="AclUserResultMap">
+        SELECT * FROM tbl_sysmgr_acluser WHERE id = 1
+    </select>
 
 </mapper>

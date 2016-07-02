@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Select;
  * Created by Athos on 2016-06-30.
  */
 public interface AclUserMapper {
-    @Select("select * from tbl_sysmgr_acluser where id = 1")
-    public AclUser getAclUserById();
+//    @Select("SELECT * FROM tbl_sysmgr_acluser WHERE id = 1")
+    AclUser getAclUserById();
 }
