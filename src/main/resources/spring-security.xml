@@ -11,64 +11,64 @@
             http://www.springframework.org/schema/security/spring-security-oauth2.xsd">
 
 
-    <security:http auto-config="false" use-expressions="true" entry-point-ref="authenticationEntryPoint">
-        <security:csrf disabled="true" />
-        <!--<security:form-login login-page="/login.html" authentication-failure-url="/error.html"/>-->
-        <!--单用户登录-->
-        <security:session-management>
-            <security:concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
-        </security:session-management>
-        <!--自定义 Filter security有好多个FILTER ,可以配几个-->
-        <security:custom-filter ref="qqFilter" before="FILTER_SECURITY_INTERCEPTOR" />
-        <!--配置这个自定义的验证 Filter必须把aotu-confi关闭-->
-        <security:custom-filter ref="qqUserNamePwdFilter" position="FORM_LOGIN_FILTER" />
-        <!--sessionId失效的识货跳转到另一个URL-->
-        <security:session-management invalid-session-url="/sessionTimeout.html" />
-    </security:http>
-    <bean id="authenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
-        <constructor-arg name="loginFormUrl" value="/login.html" />
-        <!--<property name="loginFormUrl" value="/login.html" />-->
-    </bean>
-    <bean id="qqUserNamePwdFilter" class="com.xxx.training.security.QqUsernamePasswordAuthenticationFilter" >
-        <property name="authenticationManager" ref="authenticationManager" />
+    <!--<security:http auto-config="false" use-expressions="true" entry-point-ref="authenticationEntryPoint">-->
+        <!--<security:csrf disabled="true" />-->
+        <!--&lt;!&ndash;<security:form-login login-page="/login.html" authentication-failure-url="/error.html"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;单用户登录&ndash;&gt;-->
+        <!--<security:session-management>-->
+            <!--<security:concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />-->
+        <!--</security:session-management>-->
+        <!--&lt;!&ndash;自定义 Filter security有好多个FILTER ,可以配几个&ndash;&gt;-->
+        <!--<security:custom-filter ref="qqFilter" before="FILTER_SECURITY_INTERCEPTOR" />-->
+        <!--&lt;!&ndash;配置这个自定义的验证 Filter必须把aotu-confi关闭&ndash;&gt;-->
+        <!--<security:custom-filter ref="qqUserNamePwdFilter" position="FORM_LOGIN_FILTER" />-->
+        <!--&lt;!&ndash;sessionId失效的识货跳转到另一个URL&ndash;&gt;-->
+        <!--<security:session-management invalid-session-url="/sessionTimeout.html" />-->
+    <!--</security:http>-->
+    <!--<bean id="authenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">-->
+        <!--<constructor-arg name="loginFormUrl" value="/login.html" />-->
+        <!--&lt;!&ndash;<property name="loginFormUrl" value="/login.html" />&ndash;&gt;-->
+    <!--</bean>-->
+    <!--<bean id="qqUserNamePwdFilter" class="com.xxx.training.security.QqUsernamePasswordAuthenticationFilter" >-->
+        <!--<property name="authenticationManager" ref="authenticationManager" />-->
+        <!--&lt;!&ndash;<property name="accessDecisionManager" ref="qqAccessDecisionManager" />&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="securityMetadataSource" ref="qqSecurityMetadataSource" />&ndash;&gt;-->
+    <!--</bean>-->
+    <!--<bean id="qqFilter" class="com.xxx.training.security.QqFilterSecurityInterceptor">-->
         <!--<property name="accessDecisionManager" ref="qqAccessDecisionManager" />-->
+        <!--<property name="authenticationManager" ref="authenticationManager" />-->
         <!--<property name="securityMetadataSource" ref="qqSecurityMetadataSource" />-->
-    </bean>
-    <bean id="qqFilter" class="com.xxx.training.security.QqFilterSecurityInterceptor">
-        <property name="accessDecisionManager" ref="qqAccessDecisionManager" />
-        <property name="authenticationManager" ref="authenticationManager" />
-        <property name="securityMetadataSource" ref="qqSecurityMetadataSource" />
-    </bean>
-    <security:authentication-manager alias="authenticationManager">
-        <security:authentication-provider user-service-ref="userDetailsService"/>
-    </security:authentication-manager>
-    <bean id="qqAccessDecisionManager" class="com.xxx.training.security.QqAccessDecisionManager" >
-        <!--<property name="decisionVoters" ref="roleVoter" />-->
-    </bean>
-    <bean id="roleVoter"
-          class="org.springframework.security.access.vote.RoleHierarchyVoter">
-        <constructor-arg ref="roleHierarchy" />
-    </bean>
-    <bean id="roleHierarchy"
-          class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">
-        <property name="hierarchy"><!-- 角色继承关系 -->
-            <value>
-                ROLE_ADMIN > ROLE_ABCS
-                ROLE_ADMIN > ROLE_ABCA
-            </value>
-        </property>
-    </bean>
-    <bean id="userDetailsService" class="com.xxx.training.security.UserDetailsServiceImpl">
-        <!--<property name="userDao" ref="userDao" />-->
-    </bean>
-    <!-- 获取数据库中所有的url资源，读出url资源与权限的对应关系  -->
-    <!--注意!!!!!!! 因为SecurityMetadataSource 不支持注解注入,所以使用构造器注入-->
-    <bean id="qqSecurityMetadataSource" class="com.xxx.training.security.QqSecurityMetadataSource">
-        <constructor-arg ref="rolesClient" ></constructor-arg>
-        <constructor-arg ref="resourcesClient" ></constructor-arg>
-    </bean>
-    <bean id="rolesClient" class="com.xxx.training.service.impl.RolesClientImpl"/>
-    <bean id="resourcesClient" class="com.xxx.training.service.impl.ResourcesClientImpl"/>
+    <!--</bean>-->
+    <!--<security:authentication-manager alias="authenticationManager">-->
+        <!--<security:authentication-provider user-service-ref="userDetailsService"/>-->
+    <!--</security:authentication-manager>-->
+    <!--<bean id="qqAccessDecisionManager" class="com.xxx.training.security.QqAccessDecisionManager" >-->
+        <!--&lt;!&ndash;<property name="decisionVoters" ref="roleVoter" />&ndash;&gt;-->
+    <!--</bean>-->
+    <!--<bean id="roleVoter"-->
+          <!--class="org.springframework.security.access.vote.RoleHierarchyVoter">-->
+        <!--<constructor-arg ref="roleHierarchy" />-->
+    <!--</bean>-->
+    <!--<bean id="roleHierarchy"-->
+          <!--class="org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl">-->
+        <!--<property name="hierarchy">&lt;!&ndash; 角色继承关系 &ndash;&gt;-->
+            <!--<value>-->
+                <!--ROLE_ADMIN > ROLE_ABCS-->
+                <!--ROLE_ADMIN > ROLE_ABCA-->
+            <!--</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--<bean id="userDetailsService" class="com.xxx.training.security.UserDetailsServiceImpl">-->
+        <!--&lt;!&ndash;<property name="userDao" ref="userDao" />&ndash;&gt;-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; 获取数据库中所有的url资源，读出url资源与权限的对应关系  &ndash;&gt;-->
+    <!--&lt;!&ndash;注意!!!!!!! 因为SecurityMetadataSource 不支持注解注入,所以使用构造器注入&ndash;&gt;-->
+    <!--<bean id="qqSecurityMetadataSource" class="com.xxx.training.security.QqSecurityMetadataSource">-->
+        <!--<constructor-arg ref="rolesClient" ></constructor-arg>-->
+        <!--<constructor-arg ref="resourcesClient" ></constructor-arg>-->
+    <!--</bean>-->
+    <!--<bean id="rolesClient" class="com.xxx.training.service.impl.RolesClientImpl"/>-->
+    <!--<bean id="resourcesClient" class="com.xxx.training.service.impl.ResourcesClientImpl"/>-->
 
     <!--oauth2 2016年6月10日10:22:34-->
     <!--oauth2 2016年6月10日10:22:34-->

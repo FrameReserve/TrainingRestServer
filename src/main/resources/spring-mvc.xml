@@ -8,7 +8,7 @@
             http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
 
-	<context:component-scan base-package="com.xxx.training.controller" />
+    <context:component-scan base-package="com.training" />
     <security:global-method-security jsr250-annotations="enabled" />
     <mvc:annotation-driven validator="validator" />
 
@@ -19,33 +19,24 @@
         <!--<property name="validationMessageSource" ref="messageSource"/>-->
     </bean>
 
-
-
     <!--安全切点-->
     <!--<security:global-method-security >-->
-        <!--<security:protect-pointcut expression="execution()" access="ROLE_ADMIN" />-->
+    <!--<security:protect-pointcut expression="execution()" access="ROLE_ADMIN" />-->
     <!--</security:global-method-security>-->
-  <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-    <property name="favorPathExtension" value="true" />
-    <property name="favorParameter" value="true" />
-    <property name="parameterName" value="mediaType" />
-    <property name="ignoreAcceptHeader" value="true"/>
-    <property name="defaultContentType" value="text/html" />
-    <property name="useJaf" value="false"/>
-    <property name="mediaTypes">
-       <map>
-            <entry key="json" value="application/json" />
-            <entry key="xml" value="application/xml" />
-            <entry key="html" value="text/html" />
-       </map>
-    </property>
-</bean>
-
- <mvc:interceptors>  
-    <!--*************openSessionInViewInterceptor *************   -->  
-  	<bean name="openEntityManagerInViewInterceptor" class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">  
-        <property name="entityManagerFactory" ref="entityManagerFactory" />  
-    </bean>  
- </mvc:interceptors>  
-	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" />
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="true" />
+        <property name="favorParameter" value="true" />
+        <property name="parameterName" value="mediaType" />
+        <property name="ignoreAcceptHeader" value="true"/>
+        <property name="defaultContentType" value="text/html" />
+        <property name="useJaf" value="false"/>
+        <property name="mediaTypes">
+            <map>
+                <entry key="json" value="application/json" />
+                <entry key="xml" value="application/xml" />
+                <entry key="html" value="text/html" />
+            </map>
+        </property>
+    </bean>
+    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" />
 </beans>

@@ -10,7 +10,7 @@
           <property name="password" value="${jdbc.password}" />
          -->
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="jdbc:mysql://localhost:3306/qqguest?useUnicode=true&amp;characterEncoding=UTF-8&amp;emptyStringsConvertToZero=true&amp;jdbcCompliantTruncation=false&amp;noDatetimeStringSync=true&amp;nullCatalogMeansCurrent=true&amp;nullNamePatternMatchesAll=true&amp;transformedBitIsBoolean=false&amp;dontTrackOpenResources=true&amp;zeroDateTimeBehavior=convertToNull&amp;useServerPrepStmts=false&amp;autoClosePStmtStreams=true&amp;processEscapeCodesForPrepStmts=false&amp;useFastDateParsing=false&amp;populateInsertRowWithDefaultValues=false&amp;useDirectRowUnpack=false" />
+        <property name="url" value="jdbc:mysql://localhost:3306/training?useUnicode=true&amp;characterEncoding=UTF-8&amp;emptyStringsConvertToZero=true&amp;jdbcCompliantTruncation=false&amp;noDatetimeStringSync=true&amp;nullCatalogMeansCurrent=true&amp;nullNamePatternMatchesAll=true&amp;transformedBitIsBoolean=false&amp;dontTrackOpenResources=true&amp;zeroDateTimeBehavior=convertToNull&amp;useServerPrepStmts=false&amp;autoClosePStmtStreams=true&amp;processEscapeCodesForPrepStmts=false&amp;useFastDateParsing=false&amp;populateInsertRowWithDefaultValues=false&amp;useDirectRowUnpack=false" />
         <property name="username" value="root" />
         <property name="password" value="123" />
 

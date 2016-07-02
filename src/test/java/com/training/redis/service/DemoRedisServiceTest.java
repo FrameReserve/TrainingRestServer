@@ -2,22 +2,22 @@ package com.training.redis.service;
 
 import java.util.Date;
 
-import javax.inject.Inject;
+import javax.annotation.Resource;
 
+import com.training.base.BaseTest;
 import org.junit.Test;
 
 import com.training.redis.entity.DemoRedis;
-import com.xxx.training.BaseTest;
 
 public class DemoRedisServiceTest extends BaseTest {
 
-	@Inject
+	@Resource
 	private DemoRedisService demoRedisService;
 	
 	@Test
 	public void testAddDemoRedis() {
 		DemoRedis demoRedis = new DemoRedis();
-		demoRedis.setId("1000");
+		demoRedis.setId(1000);
 		demoRedis.setCreateTime(new Date());
 		demoRedis.setLastModifyTime(new Date());
 		demoRedisService.addEntity(demoRedis);
@@ -29,5 +29,4 @@ public class DemoRedisServiceTest extends BaseTest {
 		System.out.println(demoRedis.getCreateTime());
 		System.out.println();
 	}
-	
 }
