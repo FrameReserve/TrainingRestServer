@@ -2,11 +2,8 @@ package com.training.sysmanager.dao;
 
 import com.training.base.BaseTest;
 import com.training.sysmanager.entity.AclUser;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
+import com.training.sysmanager.service.AclUserService;
 import org.junit.Test;
-import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.annotation.Resource;
 
@@ -15,25 +12,11 @@ import javax.annotation.Resource;
  */
 public class AclUserTest extends BaseTest {
     @Resource
-    @Qualifier("sessionFactory")
-    private SqlSessionFactory sqlSessionFactory;
-    private SqlSession sqlSession;
-
-//    private synchronized SqlSession getSqlSession(){
-//        if(null == sqlSession){
-//            this.sqlSession = new SqlSessionTemplate(sqlSessionFactory);
-//        }
-//        return this.sqlSession;
-//    }
-    private AclUserMapper getMapper(){
-        sqlSession = new SqlSessionTemplate(sqlSessionFactory);
-        return sqlSession.getMapper(AclUserMapper.class);
-    }
+    private AclUserService aclUserService;
 
     @Test
-    public void testMybatis(){
-        System.out.println(this.getMapper());
-        AclUser aclUser = this.getMapper().getAclUserById();
+    public void testGetEntityById(){
+     AclUser aclUser = aclUserService.getEntityById(1);
         System.out.println(aclUser.getUserName());
     }
 

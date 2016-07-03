@@ -24,7 +24,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @version   V1.0    
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath*:spring-*.xml"})
+@ContextConfiguration(locations={"classpath:*.xml"})
 public abstract class BaseTest {
 
 }

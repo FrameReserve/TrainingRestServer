@@ -1,10 +1,17 @@
 package com.training.sysmanager.entity;
 
 import com.training.core.entity.BaseEntity;
+import tk.mybatis.mapper.annotation.NameStyle;
+import tk.mybatis.mapper.code.Style;
+
+import javax.persistence.Column;
+import javax.persistence.Table;
 
 /**
  * Created by Athos on 2016-06-29.
  */
+@NameStyle(value = Style.camelhumpAndLowercase)
+@Table(name="tbl_sysmgr_acluser")
 public class AclUser extends BaseEntity {
 
     public AclUser(){}
@@ -12,8 +19,9 @@ public class AclUser extends BaseEntity {
         this.userName = userName;
         this.userPwd = userPwd;
     }
-
+    @Column
     private String userName;
+    @Column
     private String userPwd;
 
     public String getUserName() {
