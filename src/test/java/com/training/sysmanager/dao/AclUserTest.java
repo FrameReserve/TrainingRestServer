@@ -4,6 +4,7 @@ import com.training.base.BaseTest;
 import com.training.sysmanager.entity.AclUser;
 import com.training.sysmanager.service.AclUserService;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.annotation.Resource;
 
@@ -12,6 +13,7 @@ import javax.annotation.Resource;
  */
 public class AclUserTest extends BaseTest {
     @Resource
+    @Qualifier("aclUserService")
     private AclUserService aclUserService;
 
     @Test
@@ -19,5 +21,4 @@ public class AclUserTest extends BaseTest {
      AclUser aclUser = aclUserService.getEntityById(1);
         System.out.println(aclUser.getUserName());
     }
-
 }

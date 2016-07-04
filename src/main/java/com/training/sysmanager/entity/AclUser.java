@@ -1,6 +1,9 @@
 package com.training.sysmanager.entity;
 
+import com.training.core.annotation.MapperClass;
 import com.training.core.entity.BaseEntity;
+import com.training.sysmanager.dao.AclUserMapper;
+import org.apache.ibatis.type.Alias;
 import tk.mybatis.mapper.annotation.NameStyle;
 import tk.mybatis.mapper.code.Style;
 
@@ -12,6 +15,8 @@ import javax.persistence.Table;
  */
 @NameStyle(value = Style.camelhumpAndLowercase)
 @Table(name="tbl_sysmgr_acluser")
+@Alias("AclUser")
+@MapperClass(AclUserMapper.class)
 public class AclUser extends BaseEntity {
 
     public AclUser(){}

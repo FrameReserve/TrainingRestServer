@@ -33,7 +33,7 @@
     </settings>
     <!-- 别名 -->
     <typeAliases>
-        <typeAlias type="com.training.sysmanager.entity.AclUser" alias="AclUser" />
+        <package name="com.training"/>
     </typeAliases>
 
     <typeHandlers>

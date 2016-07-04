@@ -8,9 +8,9 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
     <!-- Spring MVC 注解扫描 -->
-    <context:component-scan base-package="com.training">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
+    <context:component-scan base-package="com.training" />
+        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+    <!--</context:component-scan>-->
     <aop:aspectj-autoproxy/>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
@@ -21,6 +21,7 @@
         <property name="configLocation" value="classpath:myBatisConfig.xml"></property>
         <property name="dataSource" ref="dataSource"></property>
     </bean>
+
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.training.**.dao"/>
     </bean>

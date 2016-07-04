@@ -6,6 +6,7 @@ import com.training.core.dao.BaseDao;
 import com.training.core.entity.BaseEntity;
 import com.training.core.service.BaseService;
 import com.training.core.util.GenericeClassUtils;
+import tk.mybatis.mapper.common.Mapper;
 
 public class MyBatisBaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
 
@@ -14,7 +15,7 @@ public class MyBatisBaseServiceImpl<T extends BaseEntity> implements BaseService
 	
 	@Resource(name = "myBatisBaseDao")
 	private BaseDao<T> baseDao;
-	
+
 	@Override
 	public T getEntityById(Integer id) {
 		return baseDao.getEntityById(entityClass, id);
