@@ -1,5 +1,6 @@
 package com.training.sysmanager.entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.training.core.annotation.MapperClass;
 import com.training.core.entity.BaseEntity;
 import com.training.sysmanager.dao.AclUserMapper;
@@ -17,17 +18,29 @@ import javax.persistence.Table;
 @Table(name="tbl_sysmgr_acluser")
 @Alias("AclUser")
 @MapperClass(AclUserMapper.class)
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class AclUser extends BaseEntity {
-
     public AclUser(){}
     public AclUser(String userName, String userPwd){
         this.userName = userName;
         this.userPwd = userPwd;
     }
+
+    /**
+     * 用户名
+     */
     @Column
     private String userName;
+    /**
+     * 密码
+     */
     @Column
     private String userPwd;
+    /**
+     * 角色 json 格式 或转换为数组
+     */
+    @Column
+    private String aclRoles;
 
     public String getUserName() {
         return userName;
@@ -45,5 +58,18 @@ public class AclUser extends BaseEntity {
     public AclUser setUserPwd(String userPwd) {
         this.userPwd = userPwd;
         return this;
+    }
+
+    public String getAclRoles() {
+        return aclRoles;
+    }
+
+    public String[] getAclRoleArray() {
+        //返回角色数组
+        return null;
+    }
+
+    public void setAclRoles(String aclRoles) {
+        this.aclRoles = aclRoles;
     }
 }
