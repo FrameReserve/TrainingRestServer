@@ -1,6 +1,7 @@
 package com.training.sysmanager.entity;
 
 import com.training.core.entity.BaseEntity;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.annotation.TypeAlias;
 import tk.mybatis.mapper.annotation.NameStyle;
 import tk.mybatis.mapper.code.Style;
@@ -42,6 +43,17 @@ public class AclResources extends BaseEntity {
     @Column
     private String code;
 
+    /**
+     * 一对多,可以是JSON,或者逗号间隔
+     */
+    @Column
+    private Integer aclRequestTypeId;
+    /**
+     * 转换为数组 瞬时
+     */
+    @Transient
+    private Integer [] aclRequestTypeIds;
+
     public String getUrl() {
         return url;
     }
@@ -72,5 +84,21 @@ public class AclResources extends BaseEntity {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public Integer getAclRequestTypeId() {
+        return aclRequestTypeId;
+    }
+
+    public void setAclRequestTypeId(Integer aclRequestTypeId) {
+        this.aclRequestTypeId = aclRequestTypeId;
+    }
+
+    public Integer[] getAclRequestTypeIds() {
+        return aclRequestTypeIds;
+    }
+
+    public void setAclRequestTypeIds(Integer[] aclRequestTypeIds) {
+        this.aclRequestTypeIds = aclRequestTypeIds;
     }
 }
