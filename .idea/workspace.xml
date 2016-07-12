@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5af3a996-4ed2-4c74-9a52-35eb87315749" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/com/training/sysmanager/dao/AclUserTest.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRequestType.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRequestType.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclResources.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclResources.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRole.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRole.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRoleResources.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRoleResources.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclUser.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/AclUserMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/AclUser/AclUserMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/AclUserMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/AclUser/AclUserMapper.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/AclUserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/AclUser/AclUserService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/impl/AclUserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/AclUser/impl/AclUserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclresources/impl/AclResourcesServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclresources/impl/AclResourcesServiceImpl.java" />
     </list>
     <ignored path="training.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,12 +49,83 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AclRoleServiceImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AclRoleServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrole/impl/AclRoleServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.08539326">
+            <state vertical-scroll-proportion="0.0">
               <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AclRoleResourcesServiceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclroleresources/service/AclRoleResourcesServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="19" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AclResourcesServiceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclresources/service/AclResourcesServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AclRequestTypeServiceTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclrequesttype/service/AclRequestTypeServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.58111703">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AclResourcesService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclresources/AclResourcesService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AclResourcesServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclresources/impl/AclResourcesServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AclRoleResources.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRoleResources.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1245#1246#0" expanded="true" />
+                <element signature="e#1298#1299#0" expanded="true" />
+                <element signature="e#1342#1343#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,10 +159,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/training/core/helper/impl/MyBatisHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/training/core/entity/BaseEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/impl/AclUserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/training/core/dao/BaseDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/AclUserService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring-bean.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/AclUserMapper.java" />
@@ -136,17 +195,21 @@
         <option value="$PROJECT_DIR$/src/test/java/com/training/sysmanager/dao/AclUserTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/training/sysmanager/service/acluser/AclUserServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclroleresources/impl/AclRoleResourcesServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclresources/impl/AclResourcesServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclroleresources/impl/AclRoleResourcesImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrequesttype/impl/AclRequestTypeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclUser.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRoleResources.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRole.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclResources.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRequestType.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrole/AclRoleService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclrole/service/AclRoleServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrole/impl/AclRoleServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclroleresources/service/AclRolerResourcesServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRoleResources.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclroleresources/service/AclRoleResourcesServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclresources/service/AclResourcesServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclresources/impl/AclResourcesServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclrequesttype/service/AclRequestTypeServiceTest.java" />
       </list>
     </option>
   </component>
@@ -536,10 +599,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sysmanager" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -967,85 +1026,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AclRoleServiceTest.getEntityByIdTest">
-    <configuration default="false" name="AclUserTest.selectByPrimaryKey" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.training.sysmanager.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="training" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.training.sysmanager.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.training.sysmanager.dao.AclUserTest" />
-      <option name="METHOD_NAME" value="selectByPrimaryKey" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="AclUserTest.testGetEntityById" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.training.sysmanager.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="training" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.training.sysmanager.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.training.sysmanager.dao.AclUserTest" />
-      <option name="METHOD_NAME" value="testGetEntityById" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="AclUserServiceTest.getEntityByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.training.sysmanager.acluser.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="training" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.training.sysmanager.acluser.service" />
-      <option name="MAIN_CLASS_NAME" value="com.training.sysmanager.acluser.service.AclUserServiceTest" />
-      <option name="METHOD_NAME" value="getEntityByIdTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.AclRequestTypeServiceTest.getEntityByIdTest">
     <configuration default="false" name="AclRoleServiceTest.getEntityByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1086,6 +1067,84 @@
       <option name="MAIN_CLASS_NAME" value="com.training.sysmanager.aclrole.service.AclRoleServiceTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AclRoleResourcesServiceTest.getEntityByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.training.sysmanager.aclroleresources.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="training" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.training.sysmanager.aclroleresources.service" />
+      <option name="MAIN_CLASS_NAME" value="com.training.sysmanager.aclroleresources.service.AclRoleResourcesServiceTest" />
+      <option name="METHOD_NAME" value="getEntityByIdTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AclResourcesServiceTest.getEntityByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.training.sysmanager.aclresources.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="training" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.training.sysmanager.aclresources.service" />
+      <option name="MAIN_CLASS_NAME" value="com.training.sysmanager.aclresources.service.AclResourcesServiceTest" />
+      <option name="METHOD_NAME" value="getEntityByIdTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AclRequestTypeServiceTest.getEntityByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.training.sysmanager.aclrequesttype.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="training" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.training.sysmanager.aclrequesttype.service" />
+      <option name="MAIN_CLASS_NAME" value="com.training.sysmanager.aclrequesttype.service.AclRequestTypeServiceTest" />
+      <option name="METHOD_NAME" value="getEntityByIdTest" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -1724,19 +1783,19 @@
     <list size="7">
       <item index="0" class="java.lang.String" itemvalue="JUnit.UserClientTest.save" />
       <item index="1" class="java.lang.String" itemvalue="Tomcat Server.TrainingRestServer" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.AclUserTest.selectByPrimaryKey" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.AclUserTest.testGetEntityById" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.AclUserServiceTest.getEntityByIdTest" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.AclRoleServiceTest.getEntityByIdTest" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.AclRoleServiceTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.AclRoleServiceTest.getEntityByIdTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AclRoleServiceTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AclRoleResourcesServiceTest.getEntityByIdTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.AclResourcesServiceTest.getEntityByIdTest" />
+      <item index="6" class="java.lang.String" itemvalue="JUnit.AclRequestTypeServiceTest.getEntityByIdTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.AclRoleServiceTest.getEntityByIdTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.AclRoleServiceTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.AclUserServiceTest.getEntityByIdTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.AclUserTest.testGetEntityById" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.AclUserTest.selectByPrimaryKey" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AclRequestTypeServiceTest.getEntityByIdTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.AclResourcesServiceTest.getEntityByIdTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AclRoleResourcesServiceTest.getEntityByIdTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AclRoleServiceTest.getEntityByIdTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.AclRoleServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -1816,19 +1875,25 @@
       <workItem from="1467811866357" duration="4369000" />
       <workItem from="1467900826631" duration="1348000" />
       <workItem from="1467964878650" duration="20000" />
-      <workItem from="1468327039919" duration="5654000" />
+      <workItem from="1468327039919" duration="6505000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="AclRoleServiceTest - 2016.07.12 at 22h 01m 50s.xml">
-      <configuration name="AclRoleServiceTest" configurationId="JUnit" />
+    <history-entry file="AclRequestTypeServiceTest_getEntityByIdTest - 2016.07.12 at 22h 25m 47s.xml">
+      <configuration name="AclRequestTypeServiceTest.getEntityByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AclRoleServiceTest_getEntityByIdTest - 2016.07.12 at 22h 01m 02s.xml">
-      <configuration name="AclRoleServiceTest.getEntityByIdTest" configurationId="JUnit" />
+    <history-entry file="AclResourcesServiceTest_getEntityByIdTest - 2016.07.12 at 22h 20m 37s.xml">
+      <configuration name="AclResourcesServiceTest.getEntityByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AclRoleServiceTest_getEntityByIdTest - 2016.07.12 at 22h 03m 28s.xml">
-      <configuration name="AclRoleServiceTest.getEntityByIdTest" configurationId="JUnit" />
+    <history-entry file="AclResourcesServiceTest_getEntityByIdTest - 2016.07.12 at 22h 21m 33s.xml">
+      <configuration name="AclResourcesServiceTest.getEntityByIdTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AclResourcesServiceTest_getEntityByIdTest - 2016.07.12 at 22h 23m 10s.xml">
+      <configuration name="AclResourcesServiceTest.getEntityByIdTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AclRoleResourcesServiceTest_getEntityByIdTest - 2016.07.12 at 22h 17m 04s.xml">
+      <configuration name="AclRoleResourcesServiceTest.getEntityByIdTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="AclRoleServiceTest_getEntityByIdTest - 2016.07.12 at 22h 06m 50s.xml">
       <configuration name="AclRoleServiceTest.getEntityByIdTest" configurationId="JUnit" />
@@ -1845,15 +1910,9 @@
     <history-entry file="AclRoleServiceTest_getEntityByIdTest - 2016.07.12 at 22h 11m 37s.xml">
       <configuration name="AclRoleServiceTest.getEntityByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="AclUserServiceTest_getEntityByIdTest - 2016.07.12 at 21h 56m 54s.xml">
-      <configuration name="AclUserServiceTest.getEntityByIdTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="AclUserServiceTest_getEntityByIdTest - 2016.07.12 at 22h 01m 33s.xml">
-      <configuration name="AclUserServiceTest.getEntityByIdTest" configurationId="JUnit" />
-    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="216373000" />
+    <option name="totallyTimeSpent" value="217224000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1866,13 +1925,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15783784" sideWeight="0.425608" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15783784" sideWeight="0.42385516" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16324325" sideWeight="0.4914163" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1890,7 +1949,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24866879" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35027027" sideWeight="0.46371397" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20713525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.48972973" sideWeight="0.57439196" order="3" side_tool="true" content_ui="tabs" x="22" y="347" width="1876" height="345" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15783784" sideWeight="0.5761448" order="3" side_tool="true" content_ui="tabs" x="22" y="347" width="1876" height="345" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1935,20 +1994,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/core/service/impl/RedisBaseServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13793103">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/core/service/BaseService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33184856">
-          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/training/core/dao/impl/RedisBaseDaoImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.32702237">
@@ -2168,16 +2213,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclresources/AclResourcesService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/aclrole/AclRoleMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.142858">
@@ -2260,14 +2295,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclresources/impl/AclResourcesServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrequesttype/impl/AclRequestTypeServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.42696628">
@@ -2282,16 +2309,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRoleResources.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33258426">
-          <caret line="18" column="64" selection-start-line="18" selection-start-column="64" selection-end-line="18" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2348,9 +2365,68 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrole/impl/AclRoleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08539326">
+        <state vertical-scroll-proportion="0.0">
           <caret line="2" column="45" selection-start-line="2" selection-start-column="45" selection-end-line="2" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRoleResources.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1245#1246#0" expanded="true" />
+            <element signature="e#1298#1299#0" expanded="true" />
+            <element signature="e#1342#1343#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclroleresources/service/AclRoleResourcesServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclresources/AclResourcesService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="69" selection-start-line="8" selection-start-column="69" selection-end-line="8" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclresources/impl/AclResourcesServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclresources/service/AclResourcesServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclrequesttype/service/AclRequestTypeServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.58111703">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
