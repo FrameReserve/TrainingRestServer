@@ -3,7 +3,7 @@ package com.training.sysmanager.entity;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.training.core.annotation.MapperClass;
 import com.training.core.entity.BaseEntity;
-import com.training.sysmanager.dao.AclUserMapper;
+import com.training.sysmanager.dao.acluser.AclUserMapper;
 import org.apache.ibatis.type.Alias;
 import tk.mybatis.mapper.annotation.NameStyle;
 import tk.mybatis.mapper.code.Style;
@@ -17,12 +17,13 @@ import javax.persistence.Transient;
  */
 @NameStyle(value = Style.camelhumpAndLowercase)
 @Table(name="tbl_sysmgr_acluser")
-@Alias("AclUser")
-@MapperClass(AclUserMapper.class)
+@Alias("acluser")
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@MapperClass(AclUserMapper.class)
 public class AclUser extends BaseEntity {
     public AclUser(){}
-    public AclUser(String userName, String userPwd){
+
+    public AclUser(String userName,String userPwd){
         this.userName = userName;
         this.userPwd = userPwd;
     }
@@ -41,45 +42,43 @@ public class AclUser extends BaseEntity {
      * 角色 json 格式 或转换为数组
      */
     @Column
-    private String aclRoles;
+    private String roleses;
 
     /**
      * 转换为数据 瞬时
      */
     @Transient
-    private String aclRoleses;
+    private String [] rolesesArray;
 
     public String getUserName() {
         return userName;
     }
 
-    public AclUser setUserName(String userName) {
+    public void setUserName(String userName) {
         this.userName = userName;
-        return this;
     }
 
     public String getUserPwd() {
         return userPwd;
     }
 
-    public AclUser setUserPwd(String userPwd) {
+    public void setUserPwd(String userPwd) {
         this.userPwd = userPwd;
-        return this;
     }
 
-    public String getAclRoles() {
-        return aclRoles;
+    public String getRoleses() {
+        return roleses;
     }
 
-    public void setAclRoles(String aclRoles) {
-        this.aclRoles = aclRoles;
+    public void setRoleses(String roleses) {
+        this.roleses = roleses;
     }
 
-    public String getAclRoleses() {
-        return aclRoleses;
+    public String[] getRolesesArray() {
+        return rolesesArray;
     }
 
-    public void setAclRoleses(String aclRoleses) {
-        this.aclRoleses = aclRoleses;
+    public void setRolesesArray(String[] rolesesArray) {
+        this.rolesesArray = rolesesArray;
     }
 }

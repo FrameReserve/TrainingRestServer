@@ -1,7 +1,10 @@
 package com.training.sysmanager.entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.training.core.annotation.MapperClass;
 import com.training.core.entity.BaseEntity;
-import org.springframework.data.annotation.TypeAlias;
+import com.training.sysmanager.dao.aclroleresources.AclRoleResourcesMapper;
+import org.apache.ibatis.type.Alias;
 import tk.mybatis.mapper.annotation.NameStyle;
 import tk.mybatis.mapper.code.Style;
 
@@ -12,36 +15,31 @@ import javax.persistence.Table;
  */
 @NameStyle(value = Style.camelhumpAndLowercase)
 @Table(name = "tbl_sysmgr_aclroleresources")
-@TypeAlias("AclRoleResources")
+@Alias("AclRoleResources")
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@MapperClass(AclRoleResourcesMapper.class)
 public class AclRoleResources extends BaseEntity {
     public AclRoleResources(){};
-    public AclRoleResources(Integer aclRoleId,Integer aclResourceId){
-        this.aclRoleId = aclRoleId;
-        this.aclResourceId = aclResourceId;
+    public AclRoleResources(Integer roleId,Integer resourceId){
+        this.roleId = roleId;
+        this.resourceId = resourceId;
     }
 
     /**
      * 角色ID
      */
-    private Integer aclRoleId;
+    private Integer roleId;
     /**
      * 资源ID
      */
-    private Integer aclResourceId;
+    private Integer resourceId;
 
-    public Integer getAclRoleId() {
-        return aclRoleId;
+
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setAclRoleId(Integer aclRoleId) {
-        this.aclRoleId = aclRoleId;
-    }
-
-    public Integer getAclResourceId() {
-        return aclResourceId;
-    }
-
-    public void setAclResourceId(Integer aclResourceId) {
-        this.aclResourceId = aclResourceId;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 }

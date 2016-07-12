@@ -1,4 +1,4 @@
-package com.training.sysmanager.service;
+package com.training.sysmanager.service.acluser;
 
 import com.training.core.service.BaseService;
 import com.training.sysmanager.entity.AclUser;

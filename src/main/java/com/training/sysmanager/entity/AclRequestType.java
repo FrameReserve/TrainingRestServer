@@ -1,10 +1,12 @@
 package com.training.sysmanager.entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.training.core.annotation.MapperClass;
 import com.training.core.entity.BaseEntity;
-import org.springframework.data.annotation.TypeAlias;
+import com.training.sysmanager.dao.aclrequesttype.AclRequestTypeMapper;
+import org.apache.ibatis.type.Alias;
 import tk.mybatis.mapper.annotation.NameStyle;
 import tk.mybatis.mapper.code.Style;
-
 import javax.persistence.Column;
 import javax.persistence.Table;
 
@@ -13,12 +15,14 @@ import javax.persistence.Table;
  */
 @NameStyle(value = Style.camelhumpAndLowercase)
 @Table(name = "tbl_sysmgr_aclrequesttype")
-@TypeAlias("AclRequestType")
+@Alias("AclRequestType")
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@MapperClass(AclRequestTypeMapper.class)
 public class AclRequestType extends BaseEntity {
     public AclRequestType(){}
-    public AclRequestType(String name,String code){
+    public AclRequestType(String name,String pronoun){
         this.name = name;
-        this.code = code;
+        this.pronoun = pronoun;
     }
     /**
      * 请求类型名
@@ -31,6 +35,6 @@ public class AclRequestType extends BaseEntity {
      * 例如: search,lookover,add,delete 等等
      */
     @Column
-    private String code;
+    private String pronoun;
 
 }

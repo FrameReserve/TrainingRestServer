@@ -1,8 +1,8 @@
-package com.training.sysmanager.service.impl;
+package com.training.sysmanager.service.acluser.impl;
 
 import com.training.core.service.impl.MyBatisBaseServiceImpl;
 import com.training.sysmanager.entity.AclUser;
-import com.training.sysmanager.service.AclUserService;
+import com.training.sysmanager.service.acluser.AclUserService;
 import org.springframework.stereotype.Service;
 
 

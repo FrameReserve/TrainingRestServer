@@ -1,20 +1,25 @@
 package com.training.sysmanager.entity;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.training.core.annotation.MapperClass;
 import com.training.core.entity.BaseEntity;
-import org.springframework.data.annotation.Transient;
-import org.springframework.data.annotation.TypeAlias;
+import com.training.sysmanager.dao.aclresources.AclResourcesMapper;
+import org.apache.ibatis.type.Alias;
 import tk.mybatis.mapper.annotation.NameStyle;
 import tk.mybatis.mapper.code.Style;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * Created by Athos on 2016-06-29.
  */
 @NameStyle(value = Style.camelhumpAndLowercase)
 @Table(name = "tbl_sysmgr_aclresources")
-@TypeAlias("AclResources")
+@Alias("AclResources")
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@MapperClass(AclResourcesMapper.class)
 public class AclResources extends BaseEntity {
     public AclResources(){}
 
@@ -24,12 +29,14 @@ public class AclResources extends BaseEntity {
      */
     @Column
     private String url;
+
     /**
      * 资源类型
      * 初期计划可以是 按钮 模块 等等,统一定义为资源
      */
     @Column
     private String type;
+
     /**
      * 资源名称
      * 资源的中文名,为了友好显示
@@ -41,18 +48,18 @@ public class AclResources extends BaseEntity {
      * 实际上上是模块实体类的名字全小写,如果是按钮,可以是read query等
      */
     @Column
-    private String code;
+    private String pronoun;
 
     /**
      * 一对多,可以是JSON,或者逗号间隔
      */
     @Column
-    private Integer aclRequestTypeId;
+    private Integer requestTypeId;
     /**
      * 转换为数组 瞬时
      */
     @Transient
-    private Integer [] aclRequestTypeIds;
+    private Integer [] requestTypeIds;
 
     public String getUrl() {
         return url;
@@ -78,27 +85,20 @@ public class AclResources extends BaseEntity {
         this.name = name;
     }
 
-    public String getCode() {
-        return code;
+
+    public String getPronoun() {
+        return pronoun;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setPronoun(String pronoun) {
+        this.pronoun = pronoun;
     }
 
-    public Integer getAclRequestTypeId() {
-        return aclRequestTypeId;
+    public Integer getRequestTypeId() {
+        return requestTypeId;
     }
 
-    public void setAclRequestTypeId(Integer aclRequestTypeId) {
-        this.aclRequestTypeId = aclRequestTypeId;
-    }
-
-    public Integer[] getAclRequestTypeIds() {
-        return aclRequestTypeIds;
-    }
-
-    public void setAclRequestTypeIds(Integer[] aclRequestTypeIds) {
-        this.aclRequestTypeIds = aclRequestTypeIds;
+    public void setRequestTypeId(Integer requestTypeId) {
+        this.requestTypeId = requestTypeId;
     }
 }
