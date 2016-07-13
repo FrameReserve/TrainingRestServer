@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5af3a996-4ed2-4c74-9a52-35eb87315749" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/core/dao/BaseDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/core/dao/BaseDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/core/dao/impl/JpaBaseDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/core/dao/impl/JpaBaseDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/core/dao/impl/MyBatisBaseDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/core/dao/impl/MyBatisBaseDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/core/dao/impl/RedisBaseDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/core/dao/impl/RedisBaseDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/core/service/BaseService.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/core/service/BaseService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/core/service/impl/JpaBaseServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/core/service/impl/JpaBaseServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/core/service/impl/MyBatisBaseServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/core/service/impl/MyBatisBaseServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/core/service/impl/RedisBaseServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/core/service/impl/RedisBaseServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/AclUser/AclUserMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/AclUser/AclUserMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/aclrole/AclRoleMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/aclrole/AclRoleMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/aclroleresources/AclRoleResourcesMapper.xml" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/aclroleresources/AclRoleResourcesMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRole.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRole.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRoleResources.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRoleResources.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclUser.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/security/SecurityMetadataSource.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/security/SecurityMetadataSource.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/AclUser/AclUserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/AclUser/AclUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/AclUser/impl/AclUserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/AclUser/impl/AclUserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrole/AclRoleService.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrole/AclRoleService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrole/impl/AclRoleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrole/impl/AclRoleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclrole/service/AclRoleServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclrole/service/AclRoleServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclroleresources/service/AclRoleResourcesServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclroleresources/service/AclRoleResourcesServiceTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/training/sysmanager/acluser/service/AclUserServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/training/sysmanager/acluser/service/AclUserServiceTest.java" />
     </list>
     <ignored path="training.iws" />
@@ -60,8 +39,37 @@
       <file leaf-file-name="AclUserServiceTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/com/training/sysmanager/acluser/service/AclUserServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.65642995">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.44705883">
+              <caret line="20" column="26" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AclUser.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclUser.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="44" column="26" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="26" />
+              <folding>
+                <element signature="e#1591#1592#0" expanded="true" />
+                <element signature="e#1621#1622#0" expanded="true" />
+                <element signature="e#1667#1668#0" expanded="true" />
+                <element signature="e#1705#1706#0" expanded="true" />
+                <element signature="e#1741#1742#0" expanded="true" />
+                <element signature="e#1773#1774#0" expanded="true" />
+                <element signature="e#1823#1824#0" expanded="true" />
+                <element signature="e#1865#1866#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AclUserMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/acluser/AclUserMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.107143">
+              <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -136,29 +144,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AclRoleService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrole/AclRoleService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="31" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AclRoleServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrole/impl/AclRoleServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="e#542#543#0" expanded="true" />
-                <element signature="e#595#596#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -188,7 +173,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/AclRole/AclRoleService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/AclRole/impl/AclRoleServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/AclUser/AclUserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/AclRole/AclRoleMapper.xml" />
@@ -227,18 +211,19 @@
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/security/AclUserDetailsServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclRoleResources.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/aclroleresources/AclRoleResourcesMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/aclrole/AclRoleMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/acluser/AclUserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrole/AclRoleService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/service/aclrole/impl/AclRoleServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclrole/service/AclRoleServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/training/sysmanager/acluser/service/AclUserServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/core/dao/BaseDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/core/service/impl/MyBatisBaseServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/core/dao/impl/RedisBaseDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/training/core/dao/impl/JpaBaseDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/training/sysmanager/aclroleresources/service/AclRoleResourcesServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/acluser/AclUserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/training/sysmanager/acluser/service/AclUserServiceTest.java" />
       </list>
     </option>
   </component>
@@ -2277,7 +2262,7 @@
       <workItem from="1467900826631" duration="1348000" />
       <workItem from="1467964878650" duration="20000" />
       <workItem from="1468327039919" duration="6601000" />
-      <workItem from="1468367978717" duration="11388000" />
+      <workItem from="1468367978717" duration="11726000" />
     </task>
     <servers />
   </component>
@@ -2314,7 +2299,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="228708000" />
+    <option name="totallyTimeSpent" value="229046000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2333,7 +2318,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15570469" sideWeight="0.42225772" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16510066" sideWeight="0.41988555" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2350,7 +2335,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24821173" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35027027" sideWeight="0.46371397" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2067239" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26442954" sideWeight="0.55436337" order="3" side_tool="true" content_ui="tabs" x="22" y="347" width="1876" height="345" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16510066" sideWeight="0.5801144" order="3" side_tool="true" content_ui="tabs" x="22" y="347" width="1876" height="345" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2638,14 +2623,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/acluser/AclUserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.821428">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/training/core/service/BaseService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2705,14 +2682,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.5">
           <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclUser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="26" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="26" />
           <folding />
         </state>
       </provider>
@@ -2833,10 +2802,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/entity/AclUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="44" column="26" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="26" />
+          <folding>
+            <element signature="e#1591#1592#0" expanded="true" />
+            <element signature="e#1621#1622#0" expanded="true" />
+            <element signature="e#1667#1668#0" expanded="true" />
+            <element signature="e#1705#1706#0" expanded="true" />
+            <element signature="e#1741#1742#0" expanded="true" />
+            <element signature="e#1773#1774#0" expanded="true" />
+            <element signature="e#1823#1824#0" expanded="true" />
+            <element signature="e#1865#1866#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/training/sysmanager/dao/acluser/AclUserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.107143">
+          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/training/sysmanager/acluser/service/AclUserServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65642995">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.44705883">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="33" />
           <folding />
         </state>
       </provider>

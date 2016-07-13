@@ -8,6 +8,7 @@
         <id column="id" property="id" />
         <result column="user_name" property="userName" />
         <result column="user_pwd" property="userPwd" />
+        <result column="role_ids" property="roleIds" />
         <result column="create_time" property="createTime" />
         <result column="last_modify_time" property="lastModifyTime" />
     </resultMap>

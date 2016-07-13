@@ -42,7 +42,10 @@ public class AclUser extends BaseEntity {
      * 角色 json 格式  或逗号间隔 或转换为数组
      */
     @Column
-    private String roleses;
+    private String roleIds;
+
+    @Transient
+    private String roleNames;
 
     /**
      * 转换为数据 瞬时
@@ -66,12 +69,20 @@ public class AclUser extends BaseEntity {
         this.userPwd = userPwd;
     }
 
-    public String getRoleses() {
-        return roleses;
+    public String getRoleIds() {
+        return roleIds;
     }
 
-    public void setRoleses(String roleses) {
-        this.roleses = roleses;
+    public void setRoleIds(String roleIds) {
+        this.roleIds = roleIds;
+    }
+
+    public String getRoleNames() {
+        return roleNames;
+    }
+
+    public void setRoleNames(String roleNames) {
+        this.roleNames = roleNames;
     }
 
     public String[] getRolesesArray() {
