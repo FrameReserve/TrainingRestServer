@@ -54,12 +54,7 @@ public class AclResources extends BaseEntity {
      * 一对多,可以是JSON,或者逗号间隔
      */
     @Column
-    private Integer requestTypeId;
-    /**
-     * 转换为数组 瞬时
-     */
-    @Transient
-    private Integer [] requestTypeIds;
+    private String requestTypeIds;
 
     public String getUrl() {
         return url;
@@ -94,11 +89,11 @@ public class AclResources extends BaseEntity {
         this.pronoun = pronoun;
     }
 
-    public Integer getRequestTypeId() {
-        return requestTypeId;
+    public String getRequestTypeIds() {
+        return requestTypeIds;
     }
 
-    public void setRequestTypeId(Integer requestTypeId) {
-        this.requestTypeId = requestTypeId;
+    public void setRequestTypeIds(String requestTypeIds) {
+        this.requestTypeIds = requestTypeIds;
     }
 }

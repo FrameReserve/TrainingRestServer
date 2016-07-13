@@ -7,4 +7,5 @@ import com.training.sysmanager.entity.AclRequestType;
  * Created by Athos on 2016-07-12.
  */
 public interface AclRequestTypeService extends BaseService<AclRequestType> {
+    String findPronounStrByRequestTypeIds(String requestTypeIds);
 }

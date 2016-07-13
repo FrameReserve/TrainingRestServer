@@ -37,11 +37,6 @@ public class AclRoleResources extends BaseEntity {
     @Column
     private String resourceIds;
 
-    /**
-     * 请求类型,逗号间隔,或者JSON
-     */
-    @Column
-    private String requestTypeIds;
 
 
     public Integer getRoleId() {
@@ -58,13 +53,5 @@ public class AclRoleResources extends BaseEntity {
 
     public void setResourceIds(String resourceIds) {
         this.resourceIds = resourceIds;
-    }
-
-    public String getRequestTypeIds() {
-        return requestTypeIds;
-    }
-
-    public void setRequestTypeIds(String requestTypeIds) {
-        this.requestTypeIds = requestTypeIds;
     }
 }
