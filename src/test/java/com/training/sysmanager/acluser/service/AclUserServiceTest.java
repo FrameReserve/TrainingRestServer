@@ -20,7 +20,7 @@ public class AclUserServiceTest extends BaseTest {
     @Test
     public void getEntityByIdTest(){
         AclUser aclUser = aclUserService.getEntityById(1);
-        aclUser.setRoleNames(aclRoleService.findAclRolesByAclUserRoleses(aclUser.getRoleIds()));
+        aclUser.setRoleNames(aclRoleService.findAclRolesByAclUserRoleIds(aclUser.getRoleIds()));
         System.out.println(aclUser.getUserName());
         System.out.println(aclUser.getRoleNames());
     }

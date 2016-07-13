@@ -17,11 +17,6 @@ public class AclUserServiceImpl extends MyBatisBaseServiceImpl<AclUser> implemen
         return this.getMapper().findAclUserByName(userName);
     }
 
-    @Override
-    public String findAclUserRolesByUserName(String userName) {
-        return this.getMapper().findAclUserRolesByUserName(userName);
-    }
-
     protected AclUserMapper getMapper(){
         return super.getMapper(AclUser.class);
     }

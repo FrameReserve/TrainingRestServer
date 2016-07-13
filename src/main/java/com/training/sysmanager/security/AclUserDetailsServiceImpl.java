@@ -33,7 +33,7 @@ public class AclUserDetailsServiceImpl implements UserDetailsService {
             throws UsernameNotFoundException {
         Collection<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
         AclUser aclUser = aclUserService.findAclUserByName(username);
-        String [] roles = aclUserService.findAclUserRolesByUserName(username).split(",");
+        String [] roles = aclRoleService.findAclRolesByAclUserRoleIds(aclUser.getRoleIds()).split(",");
         for (String role:roles){
             auths.add(new SimpleGrantedAuthority(role));
         }

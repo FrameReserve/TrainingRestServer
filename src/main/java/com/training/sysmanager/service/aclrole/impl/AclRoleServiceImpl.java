@@ -17,7 +17,7 @@ public class AclRoleServiceImpl extends MyBatisBaseServiceImpl<AclRole> implemen
     }
 
     @Override
-    public String findAclRolesByAclUserRoleses(String roleses) {
-        return this.getMapper().findAclRolesByAclUserRoleses(roleses);
+    public String findAclRolesByAclUserRoleIds(String roleIds) {
+        return this.getMapper().findAclRolesByAclUserRoleIds(roleIds);
     }
 }

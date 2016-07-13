@@ -10,6 +10,4 @@ import tk.mybatis.mapper.common.Mapper;
 public interface AclUserMapper extends Mapper<AclUser> {
     @Select("SELECT * FROM tbl_sysmgr_acluser WHERE user_name = #{userName}")
     AclUser findAclUserByName(String userName);
-    @Select("SELECT roleses FROM tbl_sysmgr_acluser WHERE user_name = #{userName}")
-    String findAclUserRolesByUserName(String userName);
 }

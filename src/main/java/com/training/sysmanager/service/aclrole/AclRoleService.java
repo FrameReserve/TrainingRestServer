@@ -11,5 +11,5 @@ public interface AclRoleService extends BaseService<AclRole> {
     /**
      *  根据AclUser的属性值查询返回逗号间隔的角色集字符串
      */
-    String findAclRolesByAclUserRoleses(String roleses);
+    String findAclRolesByAclUserRoleIds(String roleIds);
 }
