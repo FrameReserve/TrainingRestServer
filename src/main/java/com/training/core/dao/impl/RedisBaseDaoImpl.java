@@ -1,6 +1,7 @@
 package com.training.core.dao.impl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
@@ -55,7 +56,12 @@ public class RedisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 		
 	}
 
-	public void setRedisTemplate(RedisTemplate<Serializable, Serializable> redisTemplate) {
+    @Override
+    public List<T> selectAll(Class<T> cls) {
+        return null;
+    }
+
+    public void setRedisTemplate(RedisTemplate<Serializable, Serializable> redisTemplate) {
 		this.redisTemplate = redisTemplate;
 	}
     

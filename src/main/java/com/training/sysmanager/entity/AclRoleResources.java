@@ -8,6 +8,7 @@ import org.apache.ibatis.type.Alias;
 import tk.mybatis.mapper.annotation.NameStyle;
 import tk.mybatis.mapper.code.Style;
 
+import javax.persistence.Column;
 import javax.persistence.Table;
 
 /**
@@ -20,19 +21,27 @@ import javax.persistence.Table;
 @MapperClass(AclRoleResourcesMapper.class)
 public class AclRoleResources extends BaseEntity {
     public AclRoleResources(){};
-    public AclRoleResources(Integer roleId,Integer resourceId){
+    public AclRoleResources(Integer roleId,String resourceIds){
         this.roleId = roleId;
-        this.resourceId = resourceId;
+        this.resourceIds = resourceIds;
     }
 
     /**
      * 角色ID
      */
+    @Column
     private Integer roleId;
     /**
-     * 资源ID
+     * 资源ID,逗号间隔,或者JSON
      */
-    private Integer resourceId;
+    @Column
+    private String resourceIds;
+
+    /**
+     * 请求类型,逗号间隔,或者JSON
+     */
+    @Column
+    private String requestTypeIds;
 
 
     public Integer getRoleId() {
@@ -43,11 +52,19 @@ public class AclRoleResources extends BaseEntity {
         this.roleId = roleId;
     }
 
-    public Integer getResourceId() {
-        return resourceId;
+    public String getResourceIds() {
+        return resourceIds;
     }
 
-    public void setResourceId(Integer resourceId) {
-        this.resourceId = resourceId;
+    public void setResourceIds(String resourceIds) {
+        this.resourceIds = resourceIds;
+    }
+
+    public String getRequestTypeIds() {
+        return requestTypeIds;
+    }
+
+    public void setRequestTypeIds(String requestTypeIds) {
+        this.requestTypeIds = requestTypeIds;
     }
 }

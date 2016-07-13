@@ -9,6 +9,7 @@ import com.training.core.entity.BaseEntity;
 import tk.mybatis.mapper.common.Mapper;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Repository("myBatisBaseDao")
 @SuppressWarnings("unchecked")
@@ -43,4 +44,8 @@ public class MyBatisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 		this.getMapper(cls).deleteByPrimaryKey(id);
 	}
 
+	@Override
+	public List<T> selectAll(Class<T> cls) {
+		return this.getMapper(cls).selectAll();
+	}
 }

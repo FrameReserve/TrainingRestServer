@@ -8,6 +8,7 @@ import org.apache.ibatis.type.Alias;
 import tk.mybatis.mapper.annotation.NameStyle;
 import tk.mybatis.mapper.code.Style;
 
+import javax.persistence.Column;
 import javax.persistence.Table;
 
 /**
@@ -20,14 +21,22 @@ import javax.persistence.Table;
 @MapperClass(AclRoleMapper.class)
 public class AclRole extends BaseEntity {
     public AclRole(){}
-    public AclRole(String roleName){
+    public AclRole(String roleName,String pronoun){
         this.roleName = roleName;
+        this.pronoun = pronoun;
     }
 
     /**
      * 角色名
      */
+    @Column
     private String roleName;
+
+    /**
+     * 角色代名词
+     */
+    @Column
+    private String pronoun;
 
     public String getRoleName() {
         return roleName;
@@ -35,5 +44,13 @@ public class AclRole extends BaseEntity {
 
     public void setRoleName(String roleName) {
         this.roleName = roleName;
+    }
+
+    public String getPronoun() {
+        return pronoun;
+    }
+
+    public void setPronoun(String pronoun) {
+        this.pronoun = pronoun;
     }
 }

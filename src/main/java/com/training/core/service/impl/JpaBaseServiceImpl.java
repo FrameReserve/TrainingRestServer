@@ -3,6 +3,8 @@ package com.training.core.service.impl;
 import com.training.core.entity.BaseEntity;
 import com.training.core.service.BaseService;
 
+import java.util.List;
+
 public class JpaBaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
 
 	@Override
@@ -27,6 +29,11 @@ public class JpaBaseServiceImpl<T extends BaseEntity> implements BaseService<T> 
 	public void deleteEntityById(Integer id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public List<T> selectAll() {
+		return null;
 	}
 
 }

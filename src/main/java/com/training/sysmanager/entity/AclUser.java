@@ -39,7 +39,7 @@ public class AclUser extends BaseEntity {
     @Column
     private String userPwd;
     /**
-     * 角色 json 格式 或转换为数组
+     * 角色 json 格式  或逗号间隔 或转换为数组
      */
     @Column
     private String roleses;

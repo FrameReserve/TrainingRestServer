@@ -2,6 +2,7 @@ package com.training.sysmanager.acluser.service;
 
 import com.training.base.BaseTest;
 import com.training.sysmanager.entity.AclUser;
+import com.training.sysmanager.service.aclrole.AclRoleService;
 import com.training.sysmanager.service.acluser.AclUserService;
 import org.junit.Test;
 
@@ -13,10 +14,13 @@ import javax.annotation.Resource;
 public class AclUserServiceTest extends BaseTest {
     @Resource
     private AclUserService aclUserService;
+    @Resource
+    private AclRoleService aclRoleService;
 
     @Test
     public void getEntityByIdTest(){
-      AclUser aclUser = aclUserService.getEntityById(1);
+        AclUser aclUser = aclUserService.getEntityById(1);
         System.out.println(aclUser.getUserName());
+        System.out.println(aclRoleService.findAclRolesByAclUserRoleses(aclUser.getRoleses()));
     }
 }

@@ -17,6 +17,6 @@ public class AclRoleResourcesServiceTest extends BaseTest {
     public void getEntityByIdTest(){
         AclRoleResources aclRoleResources = new AclRoleResources();
         aclRoleResources = aclRoleResourcesService.getEntityById(1);
-        System.out.println(aclRoleResources.getResourceId());
+        System.out.println(aclRoleResources.getResourceIds());
     }
 }

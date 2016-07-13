@@ -7,6 +7,8 @@ import com.training.core.entity.BaseEntity;
 import com.training.core.service.BaseService;
 import com.training.core.util.GenericeClassUtils;
 
+import java.util.List;
+
 public class RedisBaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
 
 	@SuppressWarnings("unchecked")
@@ -35,5 +37,10 @@ public class RedisBaseServiceImpl<T extends BaseEntity> implements BaseService<T
 		baseDao.deleteEntityById(entityClass, id);
 	}
 
-	
+	@Override
+	public List<T> selectAll() {
+		return baseDao.selectAll(entityClass);
+	}
+
+
 }

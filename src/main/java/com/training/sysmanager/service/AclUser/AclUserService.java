@@ -7,4 +7,6 @@ import com.training.sysmanager.entity.AclUser;
  * Created by Athos on 2016-07-02.
  */
 public interface AclUserService extends BaseService<AclUser> {
+    AclUser findAclUserByName(String userName);
+    String findAclUserRolesByUserName(String userName);
 }
