@@ -55,7 +55,7 @@
         <servlet-name>DruidStatView</servlet-name>
         <url-pattern>/druid/*</url-pattern>
     </servlet-mapping>
-    <!-- Spring Servlet,由于把bean全部交给了SpringJap，所以Spring-mvc里面现在为空 -->
+
     <servlet>
         <servlet-name>springServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

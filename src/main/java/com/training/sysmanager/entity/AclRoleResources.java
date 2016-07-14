@@ -10,6 +10,7 @@ import tk.mybatis.mapper.code.Style;
 
 import javax.persistence.Column;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  * Created by Athos on 2016-06-29.
@@ -37,6 +38,12 @@ public class AclRoleResources extends BaseEntity {
     @Column
     private String resourceIds;
 
+    /**
+     * 资源名称
+     */
+    @Transient
+    private String resourceNames;
+
 
 
     public Integer getRoleId() {
@@ -53,5 +60,13 @@ public class AclRoleResources extends BaseEntity {
 
     public void setResourceIds(String resourceIds) {
         this.resourceIds = resourceIds;
+    }
+
+    public String getResourceNames() {
+        return resourceNames;
+    }
+
+    public void setResourceNames(String resourceNames) {
+        this.resourceNames = resourceNames;
     }
 }

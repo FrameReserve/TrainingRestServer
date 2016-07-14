@@ -17,7 +17,7 @@ import java.util.*;
 /**
  * Created by Athos on 2016-07-06.
  */
-public class SecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
+public class TrainingSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
     private static Map<String,Collection<ConfigAttribute>> aclResourceMap = null;
 
@@ -28,7 +28,7 @@ public class SecurityMetadataSource implements FilterInvocationSecurityMetadataS
      * 构造方法
      */
     //1
-    public SecurityMetadataSource(AclRoleService aclRoleService, AclResourcesService aclResourcesService){
+    public TrainingSecurityMetadataSource(AclRoleService aclRoleService, AclResourcesService aclResourcesService){
         this.aclRoleService=aclRoleService;
         this.aclResourcesService=aclResourcesService;
         loadResourceDefine();

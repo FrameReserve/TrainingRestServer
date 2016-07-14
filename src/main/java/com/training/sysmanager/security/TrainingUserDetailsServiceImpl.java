@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * Created by Athos on 2016-07-13.
  */
-public class AclUserDetailsServiceImpl implements UserDetailsService {
+public class TrainingUserDetailsServiceImpl implements UserDetailsService {
     @Resource
     private AclUserService aclUserService;
     @Resource

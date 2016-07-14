@@ -11,7 +11,9 @@ import org.springframework.data.redis.core.RedisTemplate;
 import com.google.gson.Gson;
 import com.training.core.dao.BaseDao;
 import com.training.core.entity.BaseEntity;
+import org.springframework.stereotype.Repository;
 
+@Repository("redisBaseDao")
 public class RedisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 
     protected RedisTemplate<Serializable, Serializable> redisTemplate;

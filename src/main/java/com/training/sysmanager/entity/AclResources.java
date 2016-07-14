@@ -32,7 +32,7 @@ public class AclResources extends BaseEntity {
 
     /**
      * 资源类型
-     * 初期计划可以是 按钮 模块 等等,统一定义为资源
+     * 初期计划可以是 请求类型 模块 等等,统一定义为资源
      */
     @Column
     private String type;
@@ -51,10 +51,11 @@ public class AclResources extends BaseEntity {
     private String pronoun;
 
     /**
-     * 一对多,可以是JSON,或者逗号间隔
+     *  上级资源
      */
     @Column
-    private String requestTypeIds;
+    private Integer refId;
+
 
     public String getUrl() {
         return url;
@@ -89,11 +90,11 @@ public class AclResources extends BaseEntity {
         this.pronoun = pronoun;
     }
 
-    public String getRequestTypeIds() {
-        return requestTypeIds;
+    public Integer getRefId() {
+        return refId;
     }
 
-    public void setRequestTypeIds(String requestTypeIds) {
-        this.requestTypeIds = requestTypeIds;
+    public void setRefId(Integer refId) {
+        this.refId = refId;
     }
 }
