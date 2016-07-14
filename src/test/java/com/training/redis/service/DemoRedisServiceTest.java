@@ -4,7 +4,6 @@ import java.util.Date;
 
 import javax.annotation.Resource;
 
-import com.training.base.BaseTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
