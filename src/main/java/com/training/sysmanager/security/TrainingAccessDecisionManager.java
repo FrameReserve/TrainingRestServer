@@ -29,7 +29,6 @@ public class TrainingAccessDecisionManager implements AccessDecisionManager {
                 }
             }
         }
-
         throw new AccessDeniedException("没有权限,拒绝访问!");
     }
 

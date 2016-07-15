@@ -4,6 +4,7 @@ import com.training.core.service.impl.MyBatisBaseServiceImpl;
 import com.training.sysmanager.entity.AclResources;
 import com.training.sysmanager.service.aclresources.AclResourcesService;
 import com.training.sysmanager.service.aclrole.AclRoleService;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 /**

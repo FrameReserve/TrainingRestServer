@@ -1,7 +1,7 @@
 <component name="ArtifactManager">
   <artifact type="war" name="training:war">
     <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="training.war">
+    <root id="archive" name="TrainingRestServer-0.0.1.war">
       <element id="artifact" artifact-name="training:war exploded" />
     </root>
   </artifact>
