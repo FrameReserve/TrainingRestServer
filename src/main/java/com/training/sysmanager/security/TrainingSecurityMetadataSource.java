@@ -1,9 +1,7 @@
 package com.training.sysmanager.security;
 
 import com.training.sysmanager.entity.AclResources;
-import com.training.sysmanager.entity.AclRole;
 import com.training.sysmanager.service.aclresources.AclResourcesService;
-import com.training.sysmanager.service.aclrole.AclRoleService;
 import org.springframework.security.access.ConfigAttribute;
 import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.web.FilterInvocation;
@@ -20,16 +18,13 @@ import java.util.*;
 public class TrainingSecurityMetadataSource implements FilterInvocationSecurityMetadataSource {
 
     private static Map<String,Collection<ConfigAttribute>> aclResourceMap = null;
-
-    private AclRoleService aclRoleService;
     private AclResourcesService aclResourcesService;
 
     /**
      * 构造方法
      */
     //1
-    public TrainingSecurityMetadataSource(AclRoleService aclRoleService, AclResourcesService aclResourcesService){
-        this.aclRoleService=aclRoleService;
+    public TrainingSecurityMetadataSource(AclResourcesService aclResourcesService){
         this.aclResourcesService=aclResourcesService;
         loadResourceDefine();
     }
@@ -62,12 +57,14 @@ public class TrainingSecurityMetadataSource implements FilterInvocationSecurityM
 
 
     private void loadResourceDefine(){
-        List<AclRole> aclRoles = aclRoleService.selectAll();
-        List<AclResources> aclResources = aclResourcesService.selectAll();
-        aclResourceMap = new HashMap<String,Collection<ConfigAttribute>>();
-        for (AclRole aclRole:aclRoles){
-            ConfigAttribute ca = new SecurityConfig(aclRole.getRoleName());
-            for(AclResources resources : aclResources){
+        /**
+         * 因为只有权限控制的资源才需要被拦截验证,所以只加载有权限控制的资源
+         */
+        List<AclResources> aclResourceses = aclResourcesService.selectAclResourcesTypeOfRequest();
+        aclResourceMap = new HashMap();
+        for (AclResources aclResources:aclResourceses){
+            ConfigAttribute ca = new SecurityConfig(aclResources.getAuthority().toUpperCase());
+            for(AclResources resources : aclResourceses){
                 String url = resources.getUrl();
                 if(aclResourceMap.containsKey(url)){
                     Collection<ConfigAttribute> value = aclResourceMap.get(url);
@@ -81,11 +78,6 @@ public class TrainingSecurityMetadataSource implements FilterInvocationSecurityM
                 }
             }
         }
-    }
-
-
-    public void setAclRoleService(AclRoleService aclRoleService) {
-        this.aclRoleService = aclRoleService;
     }
 
     public void setAclResourcesService(AclResourcesService aclResourcesService) {

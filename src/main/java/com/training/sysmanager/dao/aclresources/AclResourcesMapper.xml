@@ -9,7 +9,9 @@
         <result column="type" property="type" />
         <result column="name" property="name" />
         <result column="pronoun" property="pronoun" />
-        <result column="ref_id" property="refId" />
+        <result column="parent_id" property="parentId" />
+        <result column="authority" property="authority" />
+        <result column="request_type_id" property="requestTypeId" />
         <result column="create_time" property="createTime" />
         <result column="last_modify_time" property="lastModifyTime" />
     </resultMap>

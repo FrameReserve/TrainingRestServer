@@ -45,7 +45,6 @@
     <!-- 获取数据库中所有的url资源，读出url资源与权限的对应关系  -->
     <!--注意!!!!!!! 因为SecurityMetadataSource 不支持注解注入,所以使用构造器注入-->
     <bean id="trainingSecurityMetadataSource" class="com.training.sysmanager.security.TrainingSecurityMetadataSource">
-        <constructor-arg ref="aclRoleService" ></constructor-arg>
         <constructor-arg ref="aclResourcesService" ></constructor-arg>
     </bean>
     <bean id="aclRoleService" class="com.training.sysmanager.service.aclrole.impl.AclRoleServiceImpl"/>

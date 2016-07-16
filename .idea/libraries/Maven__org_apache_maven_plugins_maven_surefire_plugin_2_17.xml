@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.apache.maven.plugins:maven-surefire-plugin:2.17">
     <CLASSES>
-      <root url="jar://D:/jar/repository/org/apache/maven/plugins/maven-surefire-plugin/2.17/maven-surefire-plugin-2.17.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/plugins/maven-surefire-plugin/2.17/maven-surefire-plugin-2.17.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://D:/jar/repository/org/apache/maven/plugins/maven-surefire-plugin/2.17/maven-surefire-plugin-2.17-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/plugins/maven-surefire-plugin/2.17/maven-surefire-plugin-2.17-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://D:/jar/repository/org/apache/maven/plugins/maven-surefire-plugin/2.17/maven-surefire-plugin-2.17-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/apache/maven/plugins/maven-surefire-plugin/2.17/maven-surefire-plugin-2.17-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

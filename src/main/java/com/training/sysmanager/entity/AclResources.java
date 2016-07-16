@@ -33,6 +33,7 @@ public class AclResources extends BaseEntity {
     /**
      * 资源类型
      * 初期计划可以是 请求类型 模块 等等,统一定义为资源
+     * 使用  AclResourceTypeEnum   赋值
      */
     @Column
     private String type;
@@ -54,7 +55,19 @@ public class AclResources extends BaseEntity {
      *  上级资源
      */
     @Column
-    private Integer refId;
+    private Integer parentId;
+
+    /**
+     * 一对一 AclRequestType.id
+     */
+    @Column
+    private Integer requestTypeId;
+
+    /**
+     * 权限
+     */
+    @Transient
+    private String authority;
 
 
     public String getUrl() {
@@ -90,11 +103,27 @@ public class AclResources extends BaseEntity {
         this.pronoun = pronoun;
     }
 
-    public Integer getRefId() {
-        return refId;
+    public Integer getParentId() {
+        return parentId;
     }
 
-    public void setRefId(Integer refId) {
-        this.refId = refId;
+    public void setParentId(Integer parentId) {
+        this.parentId = parentId;
+    }
+
+    public Integer getRequestTypeId() {
+        return requestTypeId;
+    }
+
+    public void setRequestTypeId(Integer requestTypeId) {
+        this.requestTypeId = requestTypeId;
+    }
+
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
     }
 }

@@ -1,8 +1,12 @@
 package com.training.sysmanager.security;
 
+import com.training.sysmanager.entity.AclResources;
 import com.training.sysmanager.entity.AclRole;
+import com.training.sysmanager.entity.AclRoleResources;
 import com.training.sysmanager.entity.AclUser;
+import com.training.sysmanager.service.aclresources.AclResourcesService;
 import com.training.sysmanager.service.aclrole.AclRoleService;
+import com.training.sysmanager.service.aclroleresources.AclRoleResourcesService;
 import com.training.sysmanager.service.acluser.AclUserService;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -23,7 +27,9 @@ public class TrainingUserDetailsServiceImpl implements UserDetailsService {
     @Resource
     private AclUserService aclUserService;
     @Resource
-    private AclRoleService aclRoleService;
+    private AclRoleResourcesService aclRoleResourcesService;
+    @Resource
+    private AclResourcesService aclResourcesService;
 
     /* (non-Javadoc)
      * @see org.springframework.security.core.userdetails.UserDetailsService#loadUserByUsername(java.lang.String)
@@ -33,9 +39,10 @@ public class TrainingUserDetailsServiceImpl implements UserDetailsService {
             throws UsernameNotFoundException {
         Collection<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
         AclUser aclUser = aclUserService.findAclUserByName(username);
-        String [] roles = aclRoleService.findAclRolesByAclUserRoleIds(aclUser.getRoleIds()).split(",");
-        for (String role:roles){
-            auths.add(new SimpleGrantedAuthority(role));
+        String resourceIds = aclRoleResourcesService.selectResourceIdsByRoleIds(aclUser.getRoleIds());
+        List<AclResources> aclResourcesList = aclResourcesService.selectAclResourcesByResourceIds(resourceIds);
+        for (AclResources resources:aclResourcesList){
+            auths.add(new SimpleGrantedAuthority(resources.getAuthority()));
         }
         return new User(aclUser.getUserName().toLowerCase(),aclUser.getUserPwd().toLowerCase(),true,true,true,true,auths);
     }

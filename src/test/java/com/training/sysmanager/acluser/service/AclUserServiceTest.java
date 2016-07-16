@@ -5,6 +5,7 @@ import com.training.sysmanager.entity.AclUser;
 import com.training.sysmanager.service.aclrole.AclRoleService;
 import com.training.sysmanager.service.acluser.AclUserService;
 import org.junit.Test;
+import org.springframework.security.acls.model.Acl;
 
 import javax.annotation.Resource;
 
@@ -22,6 +23,16 @@ public class AclUserServiceTest extends BaseTest {
         AclUser aclUser = aclUserService.getEntityById(1);
         aclUser.setRoleNames(aclRoleService.findAclRolesByAclUserRoleIds(aclUser.getRoleIds()));
         System.out.println(aclUser.getUserName());
+        String [] roles = aclRoleService.findAclRolesByAclUserRoleIds(aclUser.getRoleIds()).split(",");
         System.out.println(aclUser.getRoleNames());
+        for (String role:roles){
+            System.out.println(role);
+        }
+    }
+
+    @Test
+    public void findAclUserByNameTest(){
+        AclUser aclUser = aclUserService.findAclUserByName("test");
+        System.out.println(aclUser.getRoleIds());
     }
 }

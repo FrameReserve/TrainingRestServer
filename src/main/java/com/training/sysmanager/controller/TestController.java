@@ -10,11 +10,18 @@ import javax.annotation.security.RolesAllowed;
  * Created by Athos on 2016-07-14.
  */
 @RestController
-@RequestMapping("/test1")
+@RequestMapping("/food")
 public class TestController extends BaseController {
 
-    @RolesAllowed({"ROLE_RESOURCES1"})
-    public void method(){
-        System.out.println("通过验证");
+    @RolesAllowed({"ROLE_FOOD_QUERY"})
+    @RequestMapping("/queryFood")
+    public void foods(){
+        System.out.println("读取食物.....");
+    }
+
+    @RolesAllowed({"ROLE_FOODS_CREATE"})
+    @RequestMapping("/addFood")
+    public  void create(){
+        System.out.println("新增食物");
     }
 }
