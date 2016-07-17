@@ -23,23 +23,35 @@
     </security:http>
     <bean id="authenticationEntryPoint" class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
         <constructor-arg name="loginFormUrl" value="/login.html" />
-        <!--<property name="loginFormUrl" value="/login.html" />-->
     </bean>
+
+
+    <bean id="trainingFilterSecurityInterceptor" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+    <property name="accessDecisionManager" ref="accessDecisionManager" />
+    <property name="authenticationManager" ref="authenticationManager" />
+    <property name="securityMetadataSource" ref="trainingSecurityMetadataSource" />
+    </bean>
+
     <bean id="trainingUsernamePasswordAuthenticationFilter" class="com.training.sysmanager.security.TrainingUsernamePasswordAuthenticationFilter" >
         <property name="authenticationManager" ref="authenticationManager" />
-        <!--<property name="accessDecisionManager" ref="qqAccessDecisionManager" />-->
-        <!--<property name="securityMetadataSource" ref="trainingSecurityMetadataSource" />-->
     </bean>
-    <bean id="trainingFilterSecurityInterceptor" class="com.training.sysmanager.security.TrainingFilterSecurityInterceptor">
-        <property name="accessDecisionManager" ref="trainingAccessDecisionManager" />
-        <property name="authenticationManager" ref="authenticationManager" />
-        <property name="securityMetadataSource" ref="trainingSecurityMetadataSource" />
-    </bean>
+
     <security:authentication-manager alias="authenticationManager">
         <security:authentication-provider user-service-ref="userDetailsService"/>
     </security:authentication-manager>
-    <bean id="trainingAccessDecisionManager" class="com.training.sysmanager.security.TrainingAccessDecisionManager" >
+
+    <bean id="accessDecisionManager" class="com.training.sysmanager.security.TrainingAccessDecisionManager">
+        <constructor-arg name="decisionVoters">
+            <list>
+                <ref bean="roleVoter"/>
+            </list>
+        </constructor-arg>
     </bean>
+    <!-- 虽然自定义前缀成功了,但是依然会读取defaultRolePrefix = "ROLE_" 不知何解 -->
+    <bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter">
+        <property name="rolePrefix" value="AUTH_"></property>
+    </bean>
+
     <bean id="userDetailsService" class="com.training.sysmanager.security.TrainingUserDetailsServiceImpl">
     </bean>
     <!-- 获取数据库中所有的url资源，读出url资源与权限的对应关系  -->

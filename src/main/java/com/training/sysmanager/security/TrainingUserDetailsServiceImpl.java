@@ -42,7 +42,7 @@ public class TrainingUserDetailsServiceImpl implements UserDetailsService {
         String resourceIds = aclRoleResourcesService.selectResourceIdsByRoleIds(aclUser.getRoleIds());
         List<AclResources> aclResourcesList = aclResourcesService.selectAclResourcesByResourceIds(resourceIds);
         for (AclResources resources:aclResourcesList){
-            auths.add(new SimpleGrantedAuthority(resources.getAuthority()));
+            auths.add(new SimpleGrantedAuthority(resources.getAuthority().toUpperCase()));
         }
         return new User(aclUser.getUserName().toLowerCase(),aclUser.getUserPwd().toLowerCase(),true,true,true,true,auths);
     }

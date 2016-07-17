@@ -27,6 +27,6 @@ public class AclResourcesServiceImpl extends MyBatisBaseServiceImpl<AclResources
 
     @Override
     public List<AclResources> selectAclResourcesByResourceIds(String resourceIds) {
-        return getMapper().selectAclResourcesByResourceIds(resourceIds);
-    }
+        return getMapper().selectAclResourcesByResourceIds(resourceIds.split(","));
+}
 }

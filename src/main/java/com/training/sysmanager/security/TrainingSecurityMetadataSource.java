@@ -64,23 +64,17 @@ public class TrainingSecurityMetadataSource implements FilterInvocationSecurityM
         aclResourceMap = new HashMap();
         for (AclResources aclResources:aclResourceses){
             ConfigAttribute ca = new SecurityConfig(aclResources.getAuthority().toUpperCase());
-            for(AclResources resources : aclResourceses){
-                String url = resources.getUrl();
+                String url = aclResources.getUrl();
                 if(aclResourceMap.containsKey(url)){
                     Collection<ConfigAttribute> value = aclResourceMap.get(url);
                     value.add(ca);
                     aclResourceMap.put(url,value);
 
                 }else {
-                    Collection<ConfigAttribute> atts = new ArrayList<ConfigAttribute>();
+                    Collection<ConfigAttribute> atts = new ArrayList();
                     atts.add(ca);
                     aclResourceMap.put(url,atts);
                 }
-            }
         }
-    }
-
-    public void setAclResourcesService(AclResourcesService aclResourcesService) {
-        this.aclResourcesService = aclResourcesService;
     }
 }
