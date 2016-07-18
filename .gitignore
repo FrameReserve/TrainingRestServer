@@ -3,7 +3,11 @@
 *.class
 *.jar
 *.war
+################################
 .idea/
+training.iml
+
+
 */WEB-INF/classes/*
 .project
 .classpath
