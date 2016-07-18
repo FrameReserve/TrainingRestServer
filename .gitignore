@@ -11,6 +11,7 @@ training.iml
 */WEB-INF/classes/*
 .project
 .classpath
+.settings
 target/
 */scmsfinance-0.0.1-SNAPSHOT/*
 */maven-archiver/*
