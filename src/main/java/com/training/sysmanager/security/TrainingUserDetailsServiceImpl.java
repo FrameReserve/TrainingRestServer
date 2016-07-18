@@ -37,7 +37,7 @@ public class TrainingUserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException {
-        Collection<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
+        Collection<GrantedAuthority> auths = new ArrayList();
         AclUser aclUser = aclUserService.findAclUserByName(username);
         String resourceIds = aclRoleResourcesService.selectResourceIdsByRoleIds(aclUser.getRoleIds());
         List<AclResources> aclResourcesList = aclResourcesService.selectAclResourcesByResourceIds(resourceIds);

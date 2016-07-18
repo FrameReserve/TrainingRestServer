@@ -11,11 +11,13 @@
         <security:csrf disabled="true" />
         <!--<security:form-login login-page="/login.html" authentication-failure-url="/error.html"/>-->
         <!--单用户登录-->
+        <!-- 拒绝访问页面 -->
+        <security:access-denied-handler error-page="/securityException/accessDenied" />
         <security:session-management>
             <security:concurrency-control max-sessions="1" error-if-maximum-exceeded="true" />
         </security:session-management>
         <!--自定义 Filter security有好多个FILTER ,可以配几个-->
-        <security:custom-filter ref="trainingFilterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR" />
+        <security:custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR" />
         <!--配置这个自定义的验证 Filter必须把aotu-confi关闭-->
         <security:custom-filter ref="trainingUsernamePasswordAuthenticationFilter" position="FORM_LOGIN_FILTER" />
         <!--sessionId失效的识货跳转到另一个URL-->
@@ -26,7 +28,7 @@
     </bean>
 
 
-    <bean id="trainingFilterSecurityInterceptor" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+    <bean id="filterSecurityInterceptor" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
     <property name="accessDecisionManager" ref="accessDecisionManager" />
     <property name="authenticationManager" ref="authenticationManager" />
     <property name="securityMetadataSource" ref="trainingSecurityMetadataSource" />
@@ -34,11 +36,20 @@
 
     <bean id="trainingUsernamePasswordAuthenticationFilter" class="com.training.sysmanager.security.TrainingUsernamePasswordAuthenticationFilter" >
         <property name="authenticationManager" ref="authenticationManager" />
+        <property name="failureHandler" ref="failureHandler" />
     </bean>
 
     <security:authentication-manager alias="authenticationManager">
         <security:authentication-provider user-service-ref="userDetailsService"/>
     </security:authentication-manager>
+
+    <bean id="failureHandler" class="com.training.sysmanager.security.TrainingAuthenticationFailureHandler">
+        <property name="exceptionMappings">
+            <map>
+                <entry key="org.springframework.security.authentication.BadCredentialsException" value="/securityException/badCredentialsException" />
+            </map>
+        </property>
+    </bean>
 
     <bean id="accessDecisionManager" class="com.training.sysmanager.security.TrainingAccessDecisionManager">
         <constructor-arg name="decisionVoters">
