@@ -7,28 +7,42 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import com.google.gson.Gson;
 import com.training.core.entity.BaseEntity;
 import com.training.core.exception.RuntimeFunctionException;
 import com.training.core.exception.RuntimeOtherException;
 import com.training.core.exception.RuntimeServiceException;
 import com.training.core.exception.RuntimeWebException;
-
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class ResultDataDto {
 
 	/**
 	 * 200-成功
 	 */
 	public final static String CODE_SUCCESS = "200";
+
+	/**
+	 *	301-代表永久性转移
+     */
+	public final static String CODE_PERMANENTLY_MOVED = "301";
+
 	/**
 	 * 500-业务逻辑错误
 	 */
 	public final static String CODE_ERROR_SERVICE = "500";
+
 	/**
 	 * 501-功能不完善，无对应方法
 	 */
 	public final static String CODE_ERROR_FUNCTION = "501";
+
 	/**
 	 * 502-网络异常
 	 */
@@ -219,6 +233,7 @@ public class ResultDataDto {
 	/**
 	 * 结果编码
 	 */
+	@XmlElement(name="code")
 	private String code;
 	
 	/**

@@ -9,7 +9,6 @@
 
     <security:http auto-config="false" use-expressions="true" entry-point-ref="authenticationEntryPoint">
         <security:csrf disabled="true" />
-        <!--<security:form-login login-page="/login.html" authentication-failure-url="/error.html"/>-->
         <!--单用户登录-->
         <!-- 拒绝访问页面 -->
         <security:access-denied-handler error-page="/securityException/accessDenied" />
@@ -42,11 +41,12 @@
     <security:authentication-manager alias="authenticationManager">
         <security:authentication-provider user-service-ref="userDetailsService"/>
     </security:authentication-manager>
-
+    <!-- 验证异常处理 key是异常的类型 value是要跳转的URL -->
     <bean id="failureHandler" class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
         <property name="exceptionMappings">
             <map>
-                <entry key="org.springframework.security.authentication.BadCredentialsException" value="/securityException/badCredentialsException" />
+                <entry key="org.springframework.security.authentication.BadCredentialsException" value="/securityException/badCredentialsException.json" />
+                <entry key="org.springframework.security.authentication.AuthenticationException" value="/securityException/authenticationException.json" />
             </map>
         </property>
     </bean>

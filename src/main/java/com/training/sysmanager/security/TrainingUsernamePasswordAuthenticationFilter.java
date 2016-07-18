@@ -1,6 +1,5 @@
 package com.training.sysmanager.security;
 
-import com.training.sysmanager.controller.SecurityExceptionHandler;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -9,7 +8,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.*;
 import org.springframework.util.Assert;
 
-import javax.annotation.Resource;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -36,7 +34,7 @@ public class TrainingUsernamePasswordAuthenticationFilter extends UsernamePasswo
     //验证成功处理
     private AuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
     //验证失败处理
-    private AuthenticationFailureHandler failureHandler = new SimpleUrlAuthenticationFailureHandler();
+    private AuthenticationFailureHandler failureHandler;
 
     // ~ Constructors
     // ===================================================================================================
