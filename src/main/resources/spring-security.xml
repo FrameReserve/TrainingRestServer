@@ -43,7 +43,7 @@
         <security:authentication-provider user-service-ref="userDetailsService"/>
     </security:authentication-manager>
 
-    <bean id="failureHandler" class="com.training.sysmanager.security.TrainingAuthenticationFailureHandler">
+    <bean id="failureHandler" class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
         <property name="exceptionMappings">
             <map>
                 <entry key="org.springframework.security.authentication.BadCredentialsException" value="/securityException/badCredentialsException" />
