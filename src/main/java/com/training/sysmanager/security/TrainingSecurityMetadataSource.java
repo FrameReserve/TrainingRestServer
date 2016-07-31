@@ -61,7 +61,7 @@ public class TrainingSecurityMetadataSource implements FilterInvocationSecurityM
          * 因为只有权限控制的资源才需要被拦截验证,所以只加载有权限控制的资源
          */
         List<AclResources> aclResourceses = aclResourcesService.selectAclResourcesTypeOfRequest();
-        aclResourceMap = new HashMap();
+        aclResourceMap = new HashMap<>();
         for (AclResources aclResources:aclResourceses){
             ConfigAttribute ca = new SecurityConfig(aclResources.getAuthority().toUpperCase());
                 String url = aclResources.getUrl();

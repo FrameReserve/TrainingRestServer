@@ -34,5 +34,6 @@ public class AclUserServiceTest extends BaseTest {
     public void findAclUserByNameTest(){
         AclUser aclUser = aclUserService.findAclUserByName("test");
         System.out.println(aclUser.getRoleIds());
+//        throw new NullPointerException("空指针");
     }
 }

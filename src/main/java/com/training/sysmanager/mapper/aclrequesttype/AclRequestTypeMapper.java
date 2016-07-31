@@ -1,4 +1,4 @@
-package com.training.sysmanager.dao.aclrequesttype;
+package com.training.sysmanager.mapper.aclrequesttype;
 
 import com.training.sysmanager.entity.AclRequestType;
 import org.apache.ibatis.annotations.Select;

@@ -1,7 +1,7 @@
 package com.training.sysmanager.service.aclroleresources.impl;
 
 import com.training.core.service.impl.MyBatisBaseServiceImpl;
-import com.training.sysmanager.dao.aclroleresources.AclRoleResourcesMapper;
+import com.training.sysmanager.mapper.aclroleresources.AclRoleResourcesMapper;
 import com.training.sysmanager.entity.AclRoleResources;
 import com.training.sysmanager.service.aclroleresources.AclRoleResourcesService;
 import org.apache.commons.lang3.StringUtils;
@@ -23,7 +23,7 @@ public class AclRoleResourcesServiceImpl extends MyBatisBaseServiceImpl<AclRoleR
     public String selectResourceIdsByRoleIds(String roleIds) {
         String resourceIds = this.getMapper().selectResourceIdsByRoleIds(roleIds);
         String [] resourceIdsArray = resourceIds.split(",");
-        ArrayList<String> list = new ArrayList();
+        ArrayList<String> list = new ArrayList<>();
         for(String resourceId : resourceIdsArray){
             if(!list.contains(resourceId)){
                 list.add(resourceId);

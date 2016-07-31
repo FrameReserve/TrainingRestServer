@@ -2,13 +2,11 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.training.sysmanager.dao.acluser.AclUserMapper">
+<mapper namespace="com.training.sysmanager.mapper.aclrole.AclRoleMapper">
 
-    <resultMap type="AclUser" id="AclUserResultMap">
+    <resultMap type="AclRole" id="AclRoleResultMap">
         <id column="id" property="id" />
-        <result column="user_name" property="userName" />
-        <result column="user_pwd" property="userPwd" />
-        <result column="role_ids" property="roleIds" />
+        <result column="role_name" property="roleName" />
         <result column="create_time" property="createTime" />
         <result column="last_modify_time" property="lastModifyTime" />
     </resultMap>

@@ -3,7 +3,7 @@ package com.training.sysmanager.entity;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.training.core.annotation.MapperClass;
 import com.training.core.entity.BaseEntity;
-import com.training.sysmanager.dao.aclrole.AclRoleMapper;
+import com.training.sysmanager.mapper.aclrole.AclRoleMapper;
 import org.apache.ibatis.type.Alias;
 import tk.mybatis.mapper.annotation.NameStyle;
 import tk.mybatis.mapper.code.Style;

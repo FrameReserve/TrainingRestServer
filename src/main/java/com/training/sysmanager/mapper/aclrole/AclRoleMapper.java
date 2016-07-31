@@ -1,10 +1,8 @@
-package com.training.sysmanager.dao.aclrole;
+package com.training.sysmanager.mapper.aclrole;
 
 import com.training.sysmanager.entity.AclRole;
 import org.apache.ibatis.annotations.Select;
 import tk.mybatis.mapper.common.Mapper;
-
-import java.util.List;
 
 /**
  * Created by Athos on 2016-07-12.

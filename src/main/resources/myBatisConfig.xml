@@ -41,6 +41,6 @@
     <!-- 拦截器 -->
     <!-- dao扫描 -->
     <mappers>
-        <package name="com.training"/>
+        <package name="com.training.**.mapper"/>
     </mappers>
 </configuration>

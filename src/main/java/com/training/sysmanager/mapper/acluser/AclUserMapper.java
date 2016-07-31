@@ -1,4 +1,4 @@
-package com.training.sysmanager.dao.acluser;
+package com.training.sysmanager.mapper.acluser;
 
 import com.training.sysmanager.entity.AclUser;
 import org.apache.ibatis.annotations.ResultMap;

@@ -1,7 +1,7 @@
 package com.training.sysmanager.service.aclrole.impl;
 
 import com.training.core.service.impl.MyBatisBaseServiceImpl;
-import com.training.sysmanager.dao.aclrole.AclRoleMapper;
+import com.training.sysmanager.mapper.aclrole.AclRoleMapper;
 import com.training.sysmanager.entity.AclRole;
 import com.training.sysmanager.service.aclrole.AclRoleService;
 import org.springframework.stereotype.Service;

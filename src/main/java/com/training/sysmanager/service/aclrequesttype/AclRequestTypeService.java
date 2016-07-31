@@ -8,4 +8,5 @@ import com.training.sysmanager.entity.AclRequestType;
  */
 public interface AclRequestTypeService extends BaseService<AclRequestType> {
     String findPronounStrByRequestTypeIds(String requestTypeIds);
+    int selectCountByNeId(AclRequestType aclRequestType);
 }

@@ -17,14 +17,22 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <bean id="aspcejHandler" class="com.training.core.aop.LogAspect"/>
+
     <bean id="sessionFactory" class="com.training.core.configuration.TrainingSqlSessionFactoryBean">
         <property name="configLocation" value="classpath:myBatisConfig.xml"></property>
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.training.**.dao"/>
+        <property name="basePackage" value="com.training.**.mapper"/>
+        <property name="properties">
+            <value>
+                tk.mybatis.mapper.common.Mapper
+            </value>
+        </property>
     </bean>
+
     <tx:advice id="txAdvice" transaction-manager="transactionManager" >
         <tx:attributes>
             <!-- propagation为事务传播属性 -->
@@ -45,7 +53,7 @@
         <!-- 第四个 .. 通配 方法可以有0个或多个参数 -->
         <aop:pointcut id="allAOPMethod" expression="execution(* com.training.*Controller.*(..))
 			or execution(* com.training.*Service.*(..)) or execution(* com.training.*Manager.*(..))" />
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="allAOPMethod" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="allAOPMethod" order="2"/>
 
     </aop:config>
 

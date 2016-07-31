@@ -1,4 +1,4 @@
-package com.training.sysmanager.dao.aclroleresources;
+package com.training.sysmanager.mapper.aclroleresources;
 
 import com.training.sysmanager.entity.AclRoleResources;
 import org.apache.ibatis.annotations.ResultType;

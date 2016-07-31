@@ -20,4 +20,5 @@ public class AclRequestTypeServiceTest extends BaseTest {
         aclRequestType = aclRequestTypeService.getEntityById(1);
         System.out.println(aclRequestType.getCreateTime());
     }
+
 }

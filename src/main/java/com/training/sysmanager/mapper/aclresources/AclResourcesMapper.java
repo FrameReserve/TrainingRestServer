@@ -1,4 +1,4 @@
-package com.training.sysmanager.dao.aclresources;
+package com.training.sysmanager.mapper.aclresources;
 
 import com.training.sysmanager.entity.AclResources;
 import org.apache.ibatis.annotations.Param;
