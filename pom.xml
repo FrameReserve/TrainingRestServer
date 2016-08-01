@@ -85,6 +85,19 @@
             </resource>
         </resources>
     </build>
+    
+    <!-- 代码自动发布到私服 -->
+    <distributionManagement>
+		<repository>
+			<id>nexus-releases</id>
+			<url>http://192.168.1.91:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>http://192.168.1.91:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+    
     <dependencies>
         <dependency>
             <groupId>org.quartz-scheduler</groupId>
