@@ -11,13 +11,13 @@
     <context:component-scan base-package="com.training" />
         <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
     <!--</context:component-scan>-->
-    <aop:aspectj-autoproxy/>
+    <!--<aop:aspectj-autoproxy/>-->
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <bean id="aspcejHandler" class="com.training.core.aop.LogAspect"/>
+    <!--<bean id="aspcejHandler" class="com.training.core.aop.LogAspect"/>-->
 
     <bean id="sessionFactory" class="com.training.core.configuration.TrainingSqlSessionFactoryBean">
         <property name="configLocation" value="classpath:myBatisConfig.xml"></property>

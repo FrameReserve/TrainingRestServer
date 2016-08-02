@@ -1,7 +1,6 @@
 package com.training.log4j;
 
 import com.training.base.BaseTest;
-import com.training.core.annotation.ServiceLog;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 

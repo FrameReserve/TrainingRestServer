@@ -1,44 +1,46 @@
 package com.training.core.aop;
 
-import org.apache.log4j.Logger;
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.*;
-import org.springframework.context.annotation.Scope;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
+import com.training.core.util.LogUtil;
+import com.training.sysmanager.entity.AclUser;
+import org.aspectj.lang.annotation.SuppressAjWarnings;
 
 /**
  * Created by Athos on 2016-07-31.
  */
-@Component
-@Scope
-@Aspect
-@Order(1)
+@SuppressAjWarnings("adviceDidNotMatch")
 public aspect LogAspect {
-    public static Logger logger = Logger.getLogger(LogAspect.class);
-    @Pointcut("@annotation(com.training.core.annotation.ServiceLog)")
-    public void serviceAspect(){
+    //记录执行时间切点
+    pointcut countTimePointcut() : execution (* *.*(..)) && @annotation(com.training.core.annotation.CountTime);
+    //记录所有异常切点
+    pointcut afterTrowingPointcut() : execution (* *.*(..));
 
-    }
+//    before() : countTimePointcut()
+//            {
+//                System.out.println(thisJoinPoint.getSignature().getName());
+//            }
+//    after() : countTimePointcut()
+//            {
+//                System.out.println(thisJoinPoint.getSignature().getName()+":after");
+//            }
 
-    @Before("serviceAspect()")
-    public void doBefore(JoinPoint joinPoint){
-        System.out.println(joinPoint.getSignature().getName()+":Aspectj Before");
-    }
+//    after() returning : executionPointcut()
+//            {
+//                System.out.println(thisJoinPoint.getSignature().getName()+": returning");
+//            }
 
-    @After("serviceAspect()")
-    public void doAfter(JoinPoint joinPoint){
-        System.out.println(joinPoint.getSignature().getName()+":Aspectj After");
-    }
-    @AfterReturning("serviceAspect()")
-    public void doAfterReturn(JoinPoint joinPoint){
-        System.out.println(joinPoint.getSignature().getName()+":Aspectj AfterReturning");
-    }
+    Object around() : countTimePointcut()
+            {
+                long startTime = System.currentTimeMillis();
+                proceed();
+                long endTime = System.currentTimeMillis();
+                LogUtil.countTimeLog("类:"+thisJoinPoint.getSignature().getClass().getName()+">>方法:"+thisJoinPoint.getSignature().getName()+"运算时间:" + (endTime - startTime)+"   毫秒");
+                return new AclUser();
+            }
 
-//    @AfterThrowing(value = "serviceAspect()", throwing = "ex")
-//    public void doAfterThrowing(JoinPoint joinPoint, Exception ex) {
-//        System.out.println(joinPoint.getSignature().getName()+":Aspectj AfterThrowing");
-//        System.out.println(ex.getMessage()+":Aspectj AfterThrowing");
-//    }
-
+    //记录所有异常日志
+    after() throwing (Exception ex):afterTrowingPointcut()
+            {
+                LogUtil.errorLog("类:"+thisJoinPoint.getSignature().getClass().getName()+">>方法:"+thisJoinPoint.getSignature().getName()+">>异常:"+ex.getMessage());
+                LogUtil.errorLog(thisJoinPoint.getSourceLocation());
+            }
 }
