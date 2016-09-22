@@ -1,11 +1,26 @@
 package com.training.syssetting.entity;
 
+import javax.persistence.Table;
+
+import org.apache.ibatis.type.Alias;
+
+import tk.mybatis.mapper.annotation.NameStyle;
+import tk.mybatis.mapper.code.Style;
+
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.training.core.annotation.MapperClass;
 import com.training.core.entity.BaseEntity;
+import com.training.syssetting.mapper.SystemConfigMapper;
 
 /**
  * 系统配置
  * key_code + key_group 唯一索引
  */
+@NameStyle(value = Style.camelhumpAndLowercase)
+@Table(name = "tbl_sysset_systemconfig")
+@Alias("SystemConfig")
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+@MapperClass(SystemConfigMapper.class)
 public class SystemConfig extends BaseEntity {
 
 	/**
