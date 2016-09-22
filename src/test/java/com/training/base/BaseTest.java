@@ -24,7 +24,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @version   V1.0    
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:spring-redis.xml","classpath:spring-druid.xml","classpath:myBatisConfig.xml","classpath:spring-mvc.xml","classpath:spring-bean.xml"})
+@ContextConfiguration(locations={"classpath:spring-redis.xml","classpath:myBatisConfig.xml","classpath:spring-mvc.xml","classpath:spring-data.xml"})
 public abstract class BaseTest {
 
 }

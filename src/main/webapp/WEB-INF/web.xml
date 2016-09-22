@@ -9,8 +9,7 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:spring-druid.xml
-            classpath:spring-bean.xml
+            classpath:spring-data.xml
             classpath:spring-quartz.xml
             classpath:spring-security.xml
         </param-value>
