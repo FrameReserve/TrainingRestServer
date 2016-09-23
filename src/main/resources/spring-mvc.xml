@@ -1,41 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns:security="http://www.springframework.org/schema/security"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
-            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
-            http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd   
+    http://www.springframework.org/schema/context   
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd    
+    http://www.springframework.org/schema/mvc   
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-    <context:component-scan base-package="com.training" />
-    <security:global-method-security jsr250-annotations="enabled" />
-    <mvc:annotation-driven validator="validator" />
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean" >
+       <property name="converters">
+           <bean class="com.training.core.converter.DateConverter" /> 
+       </property>
+    </bean> 
+    									
+    
+ 	<mvc:annotation-driven conversion-service="conversionService"/>
+ 	<aop:aspectj-autoproxy proxy-target-class="true"  />
+	<context:component-scan base-package="com.training">           
+ 		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.RestController"/>
+ 	</context:component-scan>  	
+	<mvc:default-servlet-handler/>
 
-    <!-- 以下 validator  ConversionService 在使用 mvc:annotation-driven 会 自动注册-->
-    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-        <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
-        <!-- 如果不加默认到 使用classpath下的 ValidationMessages.properties -->
-        <!--<property name="validationMessageSource" ref="messageSource"/>-->
-    </bean>
-
-    <!--安全切点-->
-    <!--<security:global-method-security >-->
-    <!--<security:protect-pointcut expression="execution()" access="ROLE_ADMIN" />-->
-    <!--</security:global-method-security>-->
-    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-        <property name="favorPathExtension" value="true" />
-        <property name="favorParameter" value="true" />
-        <property name="parameterName" value="mediaType" />
-        <property name="ignoreAcceptHeader" value="true"/>
-        <property name="defaultContentType" value="text/html" />
-        <property name="useJaf" value="false"/>
-        <property name="mediaTypes">
-            <map>
-                <entry key="json" value="application/json" />
-                <entry key="xml" value="application/xml" />
-                <entry key="html" value="text/html" />
-            </map>
-        </property>
-    </bean>
-    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" />
-</beans>
+	<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list><value>text/html;charset=UTF-8</value></list>
+		</property>
+	</bean>
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="mappingJacksonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".html" />
+	</bean>
+	
+   <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+        <property name="defaultEncoding" value="utf-8"></property>   
+        <property name="maxUploadSize" value="10485760000"></property>  
+        <property name="maxInMemorySize" value="40960"></property>  
+   </bean>
+   
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>   
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>  
+</beans>  

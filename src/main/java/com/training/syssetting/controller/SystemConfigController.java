@@ -16,5 +16,4 @@ public class SystemConfigController extends BaseController<SystemConfig> {
 	@Resource
 	private SystemConfigService systemConfigService;
 	
-	
 }

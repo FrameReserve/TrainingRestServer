@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
@@ -38,8 +38,8 @@ public class BaseController<T extends BaseEntity> {
     /**
 	 * 根据Id查询实体
 	 */
-    @RequestMapping(value = "/getEntityById", method = RequestMethod.GET)
-	public @ResponseBody ResultDataDto getEntityById(@RequestParam(value = "id") final Integer id) {
+    @RequestMapping(value = "/getEntityById/{id}", method = RequestMethod.GET)
+	public @ResponseBody ResultDataDto getEntityById(@PathVariable(value = "id") final Integer id) {
     	T entity = baseDao.getEntityById(entityClass, id);
 		return new ResultDataDto(entity);
 	}
@@ -65,8 +65,8 @@ public class BaseController<T extends BaseEntity> {
 	/**
 	 * 根据Id删除实体
 	 */
-	@RequestMapping(value = "/deleteEntityById", method = RequestMethod.DELETE)
-	public @ResponseBody ResultDataDto deleteEntityById(@RequestParam(value = "id") final Integer id) {
+	@RequestMapping(value = "/deleteEntityById/{id}", method = RequestMethod.DELETE)
+	public @ResponseBody ResultDataDto deleteEntityById(@PathVariable(value = "id") final Integer id) {
 		baseDao.deleteEntityById(entityClass, id);
 		return ResultDataDto.addDeleteSuccess();
 	}
