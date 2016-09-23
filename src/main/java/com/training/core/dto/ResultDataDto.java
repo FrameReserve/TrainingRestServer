@@ -141,7 +141,7 @@ public class ResultDataDto {
 	/**
 	 * 返回集合类型
 	 */
-	public ResultDataDto(List<Object> list) {
+	public ResultDataDto(List<? extends BaseEntity> list) {
 		super();
 		this.code = CODE_SUCCESS;
 		this.datas = list;
@@ -290,8 +290,9 @@ public class ResultDataDto {
 		return code;
 	}
 
-	public void setCode(String code) {
+	public ResultDataDto setCode(String code) {
 		this.code = code;
+		return this;
 	}
 
 	public Object getDatas() {

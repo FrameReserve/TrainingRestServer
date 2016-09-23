@@ -10,8 +10,12 @@ import org.springframework.data.redis.core.RedisTemplate;
 
 import com.google.gson.Gson;
 import com.training.core.dao.BaseDao;
+import com.training.core.dto.FlexiPageDto;
 import com.training.core.entity.BaseEntity;
+
 import org.springframework.stereotype.Repository;
+
+import tk.mybatis.mapper.entity.Example;
 
 @Repository("redisBaseDao")
 public class RedisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
@@ -65,6 +69,24 @@ public class RedisBaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 
     public void setRedisTemplate(RedisTemplate<Serializable, Serializable> redisTemplate) {
 		this.redisTemplate = redisTemplate;
+	}
+
+	@Override
+	public List<T> findByLike(Example example) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<T> findByPage(Example example, FlexiPageDto flexiPageDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int findRowCount(Example example) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
     
 }

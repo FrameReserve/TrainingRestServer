@@ -59,12 +59,7 @@ public class FlexiPageDto {
 	/**
 	 * 总记录数
 	 */
-	private Long rowCount;
-	
-	/**
-	 * 开始序号
-	 */
-	private Long seq;
+	private Integer rowCount;
 	
 	/**
 	 * 排序字段
@@ -81,19 +76,19 @@ public class FlexiPageDto {
 	/**
 	 * 数据开始坐标，Mysql从0开始
 	 */
-	public Long getSeq(){
-		return this.seq;
+	public Integer getOffset(){
+		return (this.getPage()-1)*this.getRp();
 	}
 	
 	/**
 	 * 总页数
 	 */
-	public Long getTotalPage() {
+	public Integer getTotalPage() {
 		if (null == rowCount) {
-			return 0L;
+			return 0;
 		}
-		long totalPage = (rowCount / rp);
-		long remainder = rowCount % rp;
+		int totalPage = (rowCount / rp);
+		int remainder = rowCount % rp;
 		if (rowCount > 0 && totalPage == 0) {
 			totalPage = 1;
 			return totalPage;
@@ -142,15 +137,13 @@ public class FlexiPageDto {
 		return this;
 	}
 
-	public Long getRowCount() {
+	public Integer getRowCount() {
 		return rowCount;
 	}
 
-	public FlexiPageDto setRowCount(Long rowCount) {
+	public FlexiPageDto setRowCount(Integer rowCount) {
 		
 		this.rowCount = rowCount;
-		this.seq = (this.getPage()-1)*this.getRp()*1L;
-		
 		return this;
 	}
 	
@@ -172,11 +165,5 @@ public class FlexiPageDto {
 		
 		return sql;
 	}
-
-	public FlexiPageDto setSeq(Long seq) {
-		this.seq = seq;
-		return this;
-	}
-
 
 }
