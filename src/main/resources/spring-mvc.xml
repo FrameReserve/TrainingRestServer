@@ -2,7 +2,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p" 
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans   
@@ -15,11 +14,10 @@
 
     <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean" >
        <property name="converters">
-           <bean class="com.training.core.converter.DateConverter" /> 
+           <bean class="com.training.core.converter.DateConverter" />
        </property>
-    </bean> 
-    									
-    
+    </bean>
+
  	<mvc:annotation-driven conversion-service="conversionService"/>
  	<aop:aspectj-autoproxy proxy-target-class="true"  />
 	<context:component-scan base-package="com.training">           
@@ -32,7 +30,7 @@
 			<list><value>text/html;charset=UTF-8</value></list>
 		</property>
 	</bean>
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<property name="messageConverters">
 			<list>
 				<ref bean="mappingJacksonHttpMessageConverter" />
@@ -49,7 +47,4 @@
         <property name="maxUploadSize" value="10485760000"></property>  
         <property name="maxInMemorySize" value="40960"></property>  
    </bean>
-   
-	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>   
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>  
-</beans>  
+</beans>
