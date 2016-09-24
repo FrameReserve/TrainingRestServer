@@ -6,7 +6,7 @@
 ################################
 .idea/
 training.iml
-
+/out
 
 */WEB-INF/classes/*
 .project
