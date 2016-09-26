@@ -5,6 +5,7 @@
 *.war
 ################################
 .idea/
+*.bat
 training.iml
 /out
 
