@@ -37,4 +37,23 @@ public class TrainingAccessDecisionManager extends AbstractAccessDecisionManager
         }
         throw new AccessDeniedException("没有权限,拒绝访问!");
     }
+    @Override
+    public boolean supports(ConfigAttribute attribute) {
+        return false;
+    }
+
+    /**
+     * Iterates through all <code>AccessDecisionVoter</code>s and ensures each can support
+     * the presented class.
+     * <p>
+     * If one or more voters cannot support the presented class, <code>false</code> is
+     * returned.
+     *
+     * @param clazz the type of secured object being presented
+     * @return true if this type is supported
+     */
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return true;
+    }
 }

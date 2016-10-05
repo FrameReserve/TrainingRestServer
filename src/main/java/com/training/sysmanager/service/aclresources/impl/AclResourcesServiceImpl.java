@@ -4,6 +4,7 @@ import com.training.core.service.impl.MyBatisBaseServiceImpl;
 import com.training.sysmanager.mapper.aclresources.AclResourcesMapper;
 import com.training.sysmanager.entity.AclResources;
 import com.training.sysmanager.service.aclresources.AclResourcesService;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

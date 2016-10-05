@@ -4,6 +4,7 @@ import com.training.core.annotation.MapperClass;
 import com.training.core.helper.MyBatisHelper;
 
 import org.apache.ibatis.session.RowBounds;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Repository;
 
 import com.training.core.dao.BaseDao;

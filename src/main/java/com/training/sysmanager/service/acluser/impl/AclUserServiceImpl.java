@@ -13,9 +13,11 @@ import org.springframework.stereotype.Service;
  */
 @Service("aclUserService")
 public class AclUserServiceImpl extends MyBatisBaseServiceImpl<AclUser> implements AclUserService {
-    @CountTime
+//    @CountTime
     @Override
     public AclUser findAclUserByName(String userName) {
+        AclUser aclUser = this.getMapper().findAclUserByName(userName);
+        System.out.println(aclUser.getUserPwd());
         return this.getMapper().findAclUserByName(userName);
     }
     protected AclUserMapper getMapper(){

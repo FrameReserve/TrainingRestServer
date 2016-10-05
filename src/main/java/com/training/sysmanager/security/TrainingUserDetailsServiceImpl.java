@@ -1,11 +1,8 @@
 package com.training.sysmanager.security;
 
 import com.training.sysmanager.entity.AclResources;
-import com.training.sysmanager.entity.AclRole;
-import com.training.sysmanager.entity.AclRoleResources;
 import com.training.sysmanager.entity.AclUser;
 import com.training.sysmanager.service.aclresources.AclResourcesService;
-import com.training.sysmanager.service.aclrole.AclRoleService;
 import com.training.sysmanager.service.aclroleresources.AclRoleResourcesService;
 import com.training.sysmanager.service.acluser.AclUserService;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,6 +16,7 @@ import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by Athos on 2016-07-13.
@@ -41,9 +39,7 @@ public class TrainingUserDetailsServiceImpl implements UserDetailsService {
         AclUser aclUser = aclUserService.findAclUserByName(username);
         String resourceIds = aclRoleResourcesService.selectResourceIdsByRoleIds(aclUser.getRoleIds());
         List<AclResources> aclResourcesList = aclResourcesService.selectAclResourcesByResourceIds(resourceIds);
-        for (AclResources resources:aclResourcesList){
-            auths.add(new SimpleGrantedAuthority(resources.getAuthority().toUpperCase()));
-        }
+        auths.addAll(aclResourcesList.stream().map(resources -> new SimpleGrantedAuthority(resources.getAuthority().toUpperCase())).collect(Collectors.toList()));
         return new User(aclUser.getUserName().toLowerCase(),aclUser.getUserPwd().toLowerCase(),true,true,true,true,auths);
     }
 }

@@ -23,6 +23,7 @@ public class TestController extends BaseController {
     public void foods(){
         System.out.println(aclRequestTypeService.getEntityById(1));
         System.out.println("读取食物.....");
+
     }
 
     @PreAuthorize("hasAuthority('AUTH_FOOD_ADD')")

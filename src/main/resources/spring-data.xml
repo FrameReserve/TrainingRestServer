@@ -14,6 +14,11 @@
     <!--</context:component-scan>-->
     <!--<aop:aspectj-autoproxy/>-->
 
+    <bean id="sessionFactory" class="com.training.core.configuration.TrainingSqlSessionFactoryBean">
+        <property name="configLocation" value="classpath:myBatisConfig.xml"></property>
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
 	<!-- alibaba  druid 连接池 -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         
@@ -46,11 +51,6 @@
     </bean>
 
     <!--<bean id="aspcejHandler" class="com.training.core.aop.LogAspect"/>-->
-
-    <bean id="sessionFactory" class="com.training.core.configuration.TrainingSqlSessionFactoryBean">
-        <property name="configLocation" value="classpath:myBatisConfig.xml"></property>
-        <property name="dataSource" ref="dataSource"></property>
-    </bean>
 
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.training.**.mapper"/>

@@ -1,13 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:oauth2="http://www.springframework.org/schema/security/oauth2"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:security="http://www.springframework.org/schema/security"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
             http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
-            http://www.springframework.org/schema/security 
+            http://www.springframework.org/schema/security/oauth2
+     		http://www.springframework.org/schema/security/spring-security-oauth2.xsd
+            http://www.springframework.org/schema/security
             http://www.springframework.org/schema/security/spring-security-4.1.xsd">
 
-    <security:http auto-config="false" use-expressions="true" entry-point-ref="authenticationEntryPoint">
+    <!-- ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓oauth -->
+    <security:global-method-security jsr250-annotations="enabled" pre-post-annotations="enabled" />
+
+    <!--  /oauth/token 是oauth2登陆验证请求的url     用于获取access_token  ,默认的生存时间是43200秒，即12小时-->
+    <security:http pattern="/oauth/token"  create-session="stateless" authentication-manager-ref="clientAuthenticationManager" >
+        <security:csrf disabled="true" />
+        <security:intercept-url pattern="/oauth/token" access="isFullyAuthenticated()" />  <!-- 可以访问的角色名称，如果需要拦截，需要实现UserDetails接口，实现getAuthorities（）方法-->
+        <security:anonymous enabled="false" />
+        <security:http-basic entry-point-ref="oauth2AuthenticationEntryPoint" />
+        <security:custom-filter ref="clientCredentialsTokenEndpointFilter" before="BASIC_AUTH_FILTER" />
+        <security:access-denied-handler ref="oauth2AccessDeniedHandler" />
+    </security:http>
+
+    <!-- 验证的权限控制 -->
+    <security:authentication-manager id="clientAuthenticationManager">
+        <security:authentication-provider user-service-ref="oauth2ClientDetailsUserService"  />
+    </security:authentication-manager>
+
+
+    <oauth2:client-details-service id="clientDetailsService" >
+        <oauth2:client client-id="mobile_1" authorized-grant-types="password,authorization_code,refresh_token,implicit" secret="secret_1" scope="read,write,trust" authorities="ROLE_CLIENT,ROLE_TRUSTED_CLIENT"  resource-ids="mobile-resource" />
+    </oauth2:client-details-service>
+    <bean id="oauth2ClientDetailsUserService" class="org.springframework.security.oauth2.provider.client.ClientDetailsUserDetailsService">
+        <constructor-arg name="clientDetailsService" ref="clientDetailsService" />
+    </bean>
+
+    <!-- for spring oauth2 -->
+    <!--token在服务器存储的方式    InMemoryTokenStore ：保存在内存     ；JdbcTokenStore : 保存在数据库中 -->
+    <bean id="tokenStore" class="org.springframework.security.oauth2.provider.token.store.InMemoryTokenStore" />
+    <bean id="tokenServices" class="org.springframework.security.oauth2.provider.token.DefaultTokenServices">     <!--令牌服务的实体-->
+        <property name="tokenStore" ref="tokenStore"></property>
+        <property name="supportRefreshToken" value="true"/>
+        <property name="clientDetailsService" ref="clientDetailsService" />
+    </bean>
+    <!--处理访问成功-->
+    <bean id="oauth2AuthenticationEntryPoint" class="org.springframework.security.oauth2.provider.error.OAuth2AuthenticationEntryPoint" />
+    <!--处理访问拒绝-->
+    <bean id="oauth2AccessDeniedHandler" class="org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler" />
+    <!--处理认证点-->
+    <bean id="oauthUserApprovalHandler" class="org.springframework.security.oauth2.provider.approval.DefaultUserApprovalHandler" />
+    <!--处理访问控制-->
+    <bean id="oauth2AccessDecisionManager" class="org.springframework.security.access.vote.UnanimousBased">
+        <constructor-arg>
+            <list>
+                <bean class="org.springframework.security.access.vote.AuthenticatedVoter"/>
+                <bean class="org.springframework.security.oauth2.provider.vote.ScopeVoter"/>
+                <bean class="org.springframework.security.access.vote.RoleVoter"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <!--oauth2 的server所能支持的请求类型-->
+    <oauth2:authorization-server client-details-service-ref="clientDetailsService" token-services-ref="tokenServices" user-approval-handler-ref="oauthUserApprovalHandler">
+        <oauth2:authorization-code />
+        <oauth2:implicit />
+        <oauth2:refresh-token />
+        <oauth2:client-credentials />
+        <oauth2:password />
+    </oauth2:authorization-server>
+
+    <bean id="clientCredentialsTokenEndpointFilter" class="org.springframework.security.oauth2.provider.client.ClientCredentialsTokenEndpointFilter">
+        <property name="authenticationManager" ref="clientAuthenticationManager" />
+        <constructor-arg name="path" value="/oauth/token" />
+    </bean>
+
+    <!--指定spring要保护的资源，如果没有这个，访问控制的时候会说没有Authentication object：-->
+    <oauth2:resource-server id="mobileResourceServer" resource-id="mobile-resource" token-services-ref="tokenServices" />
+
+    <!--<security:http pattern="/json/**" create-session="never" entry-point-ref="oauth2AuthenticationEntryPoint" access-decision-manager-ref="oauth2AccessDecisionManager">-->
+        <!--<security:anonymous enabled="false" />-->
+        <!--<security:intercept-url pattern="/json/**" access="isFullyAuthenticated()" />-->
+        <!--<security:custom-filter ref="mobileResourceServer" before="PRE_AUTH_FILTER" />-->
+        <!--<security:access-denied-handler ref="oauth2AccessDeniedHandler" />-->
+    <!--</security:http>-->
+
+    <!-- ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑oauth -->
+
+
+    <security:http auto-config="false" use-expressions="true" entry-point-ref="authenticationEntryPoint" >
         <security:csrf disabled="true" />
         <!--单用户登录-->
         <!-- 拒绝访问页面 -->
@@ -26,7 +107,6 @@
         <constructor-arg name="loginFormUrl" value="/login.html" />
     </bean>
 
-
     <bean id="filterSecurityInterceptor" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
     <property name="accessDecisionManager" ref="accessDecisionManager" />
     <property name="authenticationManager" ref="authenticationManager" />
@@ -37,24 +117,19 @@
         <property name="authenticationManager" ref="authenticationManager" />
         <property name="failureHandler" ref="failureHandler" />
     </bean>
-
-    <security:authentication-manager alias="authenticationManager">
+    <!-- 切记 authentication-manager-ref 的话,这里ID改成 alias ref的话这里是id   -->
+    <security:authentication-manager id="authenticationManager">
         <security:authentication-provider user-service-ref="userDetailsService"/>
     </security:authentication-manager>
-    <!-- 验证异常处理 key是异常的类型 value是要跳转的URL -->
-    <bean id="failureHandler" class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
-        <property name="exceptionMappings">
-            <map>
-                <entry key="org.springframework.security.authentication.BadCredentialsException" value="/securityException/badCredentialsException.json" />
-                <entry key="org.springframework.security.authentication.AuthenticationException" value="/securityException/authenticationException.json" />
-            </map>
-        </property>
+    <!-- 处理登录失败异常 -->
+    <bean id="failureHandler" class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+        <property name="defaultFailureUrl" value="/getLoginError" />
     </bean>
-
     <bean id="accessDecisionManager" class="com.training.sysmanager.security.TrainingAccessDecisionManager">
         <constructor-arg name="decisionVoters">
             <list>
                 <ref bean="roleVoter"/>
+                <bean class="org.springframework.security.access.vote.AuthenticatedVoter" />
             </list>
         </constructor-arg>
     </bean>
@@ -67,10 +142,8 @@
     </bean>
     <!-- 获取数据库中所有的url资源，读出url资源与权限的对应关系  -->
     <!--注意!!!!!!! 因为SecurityMetadataSource 不支持注解注入,所以使用构造器注入-->
+    <bean id="aclResourcesService" class="com.training.sysmanager.service.aclresources.impl.AclResourcesServiceImpl"/>
     <bean id="trainingSecurityMetadataSource" class="com.training.sysmanager.security.TrainingSecurityMetadataSource">
         <constructor-arg ref="aclResourcesService" ></constructor-arg>
     </bean>
-    <bean id="aclRoleService" class="com.training.sysmanager.service.aclrole.impl.AclRoleServiceImpl"/>
-    <bean id="aclResourcesService" class="com.training.sysmanager.service.aclresources.impl.AclResourcesServiceImpl"/>
-
 </beans>

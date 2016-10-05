@@ -5,6 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Repository;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -25,7 +26,6 @@ public class MyBatisHelperImpl implements MyBatisHelper {
         }
         return this.sqlSession;
     }
-
     public <T extends Mapper> T getMapper(Class<T> cls){
        return getSqlSession().getMapper(cls);
     }
