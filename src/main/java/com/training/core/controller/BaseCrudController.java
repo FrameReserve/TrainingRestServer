@@ -4,6 +4,15 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import tk.mybatis.mapper.entity.Example;
+
 import com.training.core.dao.BaseDao;
 import com.training.core.dto.FlexiPageDto;
 import com.training.core.dto.ResultDataDto;

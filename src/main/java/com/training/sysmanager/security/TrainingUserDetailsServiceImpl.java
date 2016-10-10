@@ -22,6 +22,7 @@ import java.util.stream.Collectors;
  * Created by Athos on 2016-07-13.
  */
 public class TrainingUserDetailsServiceImpl implements UserDetailsService {
+	
     @Resource
     private AclUserService aclUserService;
     @Resource
@@ -32,14 +33,13 @@ public class TrainingUserDetailsServiceImpl implements UserDetailsService {
     /* (non-Javadoc)
      * @see org.springframework.security.core.userdetails.UserDetailsService#loadUserByUsername(java.lang.String)
      */
-    @Override
-    public UserDetails loadUserByUsername(String username)
-            throws UsernameNotFoundException {
-        Collection<GrantedAuthority> auths = new ArrayList();
+	@Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Collection<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
         AclUser aclUser = aclUserService.findAclUserByName(username);
         String resourceIds = aclRoleResourcesService.selectResourceIdsByRoleIds(aclUser.getRoleIds());
         List<AclResources> aclResourcesList = aclResourcesService.selectAclResourcesByResourceIds(resourceIds);
-        auths.addAll(aclResourcesList.stream().map(resources -> new SimpleGrantedAuthority(resources.getAuthority().toUpperCase())).collect(Collectors.toList()));
+//        auths.addAll(aclResourcesList.stream().map(resources -> new SimpleGrantedAuthority(resources.getAuthority().toUpperCase())).collect(Collectors.toList()));
         return new User(aclUser.getUserName().toLowerCase(),aclUser.getUserPwd().toLowerCase(),true,true,true,true,auths);
     }
 }
