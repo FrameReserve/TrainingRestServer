@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50625
-Source Host           : localhost:3306
+Source Server         : 192.168.2.63
+Source Server Version : 50631
+Source Host           : 192.168.2.63:3306
 Source Database       : training
 
 Target Server Type    : MYSQL
-Target Server Version : 50625
+Target Server Version : 50631
 File Encoding         : 65001
 
-Date: 2016-07-17 12:40:30
+Date: 2016-12-02 11:45:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for tbl_sysmgr_aclrequesttype
+-- Table structure for `tbl_sysmgr_aclrequesttype`
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_sysmgr_aclrequesttype`;
 CREATE TABLE `tbl_sysmgr_aclrequesttype` (
@@ -39,7 +39,7 @@ INSERT INTO `tbl_sysmgr_aclrequesttype` VALUES ('3', '更新', 'update', '2016-0
 INSERT INTO `tbl_sysmgr_aclrequesttype` VALUES ('4', '删除', 'delete', '2016-07-13 15:10:27', '2016-07-13 15:10:22');
 
 -- ----------------------------
--- Table structure for tbl_sysmgr_aclresources
+-- Table structure for `tbl_sysmgr_aclresources`
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_sysmgr_aclresources`;
 CREATE TABLE `tbl_sysmgr_aclresources` (
@@ -68,7 +68,7 @@ INSERT INTO `tbl_sysmgr_aclresources` VALUES ('4', '/category', 'M', '商品类�
 INSERT INTO `tbl_sysmgr_aclresources` VALUES ('5', '/food/addFood', 'R', '新增食物', 'addFood', '2', '1', null, null);
 
 -- ----------------------------
--- Table structure for tbl_sysmgr_aclrole
+-- Table structure for `tbl_sysmgr_aclrole`
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_sysmgr_aclrole`;
 CREATE TABLE `tbl_sysmgr_aclrole` (
@@ -90,7 +90,7 @@ INSERT INTO `tbl_sysmgr_aclrole` VALUES ('3', '买家', 'buyer', '2016-07-13 15:
 INSERT INTO `tbl_sysmgr_aclrole` VALUES ('4', '卖家', 'seller', '2016-07-13 15:56:06', '2016-07-13 15:56:09');
 
 -- ----------------------------
--- Table structure for tbl_sysmgr_aclroleresources
+-- Table structure for `tbl_sysmgr_aclroleresources`
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_sysmgr_aclroleresources`;
 CREATE TABLE `tbl_sysmgr_aclroleresources` (
@@ -111,7 +111,7 @@ INSERT INTO `tbl_sysmgr_aclroleresources` VALUES ('2', '2', '3,4', null, null);
 INSERT INTO `tbl_sysmgr_aclroleresources` VALUES ('3', '3', '4,5', null, null);
 
 -- ----------------------------
--- Table structure for tbl_sysmgr_acluser
+-- Table structure for `tbl_sysmgr_acluser`
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_sysmgr_acluser`;
 CREATE TABLE `tbl_sysmgr_acluser` (
@@ -129,3 +129,25 @@ CREATE TABLE `tbl_sysmgr_acluser` (
 -- Records of tbl_sysmgr_acluser
 -- ----------------------------
 INSERT INTO `tbl_sysmgr_acluser` VALUES ('1', 'test', '1', '1,2,3,4', null, null);
+
+-- ----------------------------
+-- Table structure for `tbl_sysset_systemconfig`
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_sysset_systemconfig`;
+CREATE TABLE `tbl_sysset_systemconfig` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `last_modify_time` datetime DEFAULT NULL COMMENT '最后修改时间',
+  `key_code` varchar(200) NOT NULL COMMENT '配置编码',
+  `key_group` varchar(200) NOT NULL COMMENT '分组',
+  `key_name` varchar(200) NOT NULL COMMENT '显示名字',
+  `key_value` varchar(200) NOT NULL COMMENT '值',
+  `comment` varchar(200) NOT NULL COMMENT '描述',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of tbl_sysset_systemconfig
+-- ----------------------------
+INSERT INTO `tbl_sysset_systemconfig` VALUES ('1', '2016-09-22 00:00:00', '2016-09-22 00:00:00', '1', '1', '1', '1', '1');
+INSERT INTO `tbl_sysset_systemconfig` VALUES ('2', '2016-09-23 17:35:18', '2016-09-23 17:35:22', '2', '2', '2', '2', '2');
