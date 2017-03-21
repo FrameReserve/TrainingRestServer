@@ -7,7 +7,7 @@ import tk.mybatis.mapper.entity.Example;
 import com.training.core.dto.FlexiPageDto;
 import com.training.core.entity.BaseEntity;
 
-public interface BaseDao<T extends BaseEntity> {
+public interface MyBatisBaseDao<T extends BaseEntity> {
 
 	/**
 	 * 根据Id查询实体
@@ -32,7 +32,7 @@ public interface BaseDao<T extends BaseEntity> {
 	/**
 	 * 查询全部
      */
-	public List<T> selectAll(Class<T> cls);
+	public List<T> findAll(Class<T> cls);
 	
 	/**
 	 * 单表模糊查询

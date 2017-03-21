@@ -13,6 +13,7 @@
             classpath:spring-quartz.xml
             classpath:spring-security.xml
             classpath:spring-redis.xml
+            classpath:spring-mongodb.xml
         </param-value>
     </context-param>
     <listener>

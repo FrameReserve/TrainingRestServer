@@ -24,7 +24,7 @@ public class AclRoleServiceTest extends BaseTest {
 
     @Test
     public void selectAllTest(){
-        List<AclRole> aclRoles = aclRoleService.selectAll();
+        List<AclRole> aclRoles = aclRoleService.findAll();
         System.out.println(aclRoles.size());
     }
 }

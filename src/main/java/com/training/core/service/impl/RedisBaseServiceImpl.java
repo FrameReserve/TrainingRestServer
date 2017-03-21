@@ -2,20 +2,18 @@ package com.training.core.service.impl;
 
 import javax.annotation.Resource;
 
-import com.training.core.dao.BaseDao;
+import com.training.core.dao.RedisBaseDao;
 import com.training.core.entity.BaseEntity;
-import com.training.core.service.BaseService;
+import com.training.core.service.RedisBaseService;
 import com.training.core.util.GenericeClassUtils;
 
-import java.util.List;
-
-public class RedisBaseServiceImpl<T extends BaseEntity> implements BaseService<T> {
+public class RedisBaseServiceImpl<T extends BaseEntity> implements RedisBaseService<T> {
 
 	@SuppressWarnings("unchecked")
 	protected Class<T> entityClass = (Class<T>) GenericeClassUtils.getSuperClassGenricType(this.getClass(), 0);
 		
 	@Resource(name = "redisBaseDao")
-	private BaseDao<T> baseDao;
+	private RedisBaseDao<T> baseDao;
 	
 	@Override
 	public T getEntityById(Integer id) {
@@ -36,11 +34,5 @@ public class RedisBaseServiceImpl<T extends BaseEntity> implements BaseService<T
 	public void deleteEntityById(Integer id) {
 		baseDao.deleteEntityById(entityClass, id);
 	}
-
-	@Override
-	public List<T> selectAll() {
-		return baseDao.selectAll(entityClass);
-	}
-
 
 }

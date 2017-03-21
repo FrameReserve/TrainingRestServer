@@ -30,7 +30,7 @@ public class AclResourcesServiceTest extends BaseTest {
     @Test
     public void selectAllTest(){
         List<AclResources> aclResourcesList = new ArrayList<AclResources>();
-        aclResourcesList = aclResourcesService.selectAll();
+        aclResourcesList = aclResourcesService.findAll();
         for(AclResources aclResources : aclResourcesList){
             System.out.println(aclResources.getUrl());
         }

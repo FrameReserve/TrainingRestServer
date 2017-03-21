@@ -13,20 +13,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import tk.mybatis.mapper.entity.Example;
 
-import com.training.core.dao.BaseDao;
+import com.training.core.dao.MyBatisBaseDao;
 import com.training.core.dto.FlexiPageDto;
 import com.training.core.dto.ResultDataDto;
 import com.training.core.entity.BaseEntity;
 import com.training.core.util.FilterUtil;
 import com.training.core.util.GenericeClassUtils;
 
-public class BaseCrudController<T extends BaseEntity> extends BaseController<T> {
+public class BaseCrudController<T extends BaseEntity> extends BaseController {
 
 	@SuppressWarnings("unchecked")
 	protected Class<T> entityClass = (Class<T>) GenericeClassUtils.getSuperClassGenricType(this.getClass(), 0);
 	
 	@Resource(name = "myBatisBaseDao")
-	protected BaseDao<T> baseDao;
+	protected MyBatisBaseDao<T> baseDao;
 	
     /**
 	 * 根据Id查询实体
@@ -70,7 +70,7 @@ public class BaseCrudController<T extends BaseEntity> extends BaseController<T> 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@RequestMapping(value = "/findAllEntitys", method = RequestMethod.GET)
 	public @ResponseBody ResultDataDto findAllEntitys() {
-		List list = baseDao.selectAll(entityClass);
+		List list = baseDao.findAll(entityClass);
 		return new ResultDataDto(list);
 	}
 	

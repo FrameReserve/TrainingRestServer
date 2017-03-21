@@ -72,6 +72,7 @@ public class FlexiPageDto {
 	private String sortOrder = "desc";
 	
 	public static final String SORTORDER_ACS = "asc";
+	public static final String SORTORDER_DESC = "desc";
 	
 	/**
 	 * 数据开始坐标，Mysql从0开始

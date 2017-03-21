@@ -3,22 +3,16 @@ package com.training.core.entity;
 import java.io.Serializable;
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import tk.mybatis.mapper.annotation.NameStyle;
-import tk.mybatis.mapper.code.Style;
-
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@NameStyle(value = Style.camelhumpAndLowercase)
-public class BaseEntity implements Serializable {
-	
+public class MongodbBaseEntity implements Serializable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonProperty("id")
-    private Integer id;
+    private String id;
 
 	/**
 	 * 创建时间
@@ -32,11 +26,11 @@ public class BaseEntity implements Serializable {
 	@Column
 	private Date lastModifyTime;
 	
-	public Integer getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -55,4 +49,5 @@ public class BaseEntity implements Serializable {
 	public void setLastModifyTime(Date lastModifyTime) {
 		this.lastModifyTime = lastModifyTime;
 	}
+	
 }

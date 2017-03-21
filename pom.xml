@@ -167,7 +167,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
-
         </dependency>
         <!-- security -->
         <dependency>
@@ -318,6 +317,13 @@
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
             <version>1</version>
+        </dependency>
+        
+        <!-- Mongodb -->
+        <dependency>
+        	<groupId>org.springframework.data</groupId>
+        	<artifactId>spring-data-mongodb</artifactId>
+        	<version>1.10.1.RELEASE</version>
         </dependency>
 
         <!-- Gson -->
